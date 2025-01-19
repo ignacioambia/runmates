@@ -1,0 +1,9 @@
+{
+  "name": "runmates-web-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/runmates-web-e2e/src",
+  "implicitDependencies": ["runmates-web"],
+  "// targets": "to see all targets run: nx show project runmates-web-e2e --web",
+  "targets": {}
+}
