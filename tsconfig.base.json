@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@runmates/ui": ["libs/ui/src/index.ts"]
+      "@runmates/ui": ["libs/ui/src/index.ts"],
+      "@runmates/validators": ["libs/validators/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
