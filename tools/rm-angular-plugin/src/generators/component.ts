@@ -17,7 +17,7 @@ export async function componentGenerator(
 
   const projects = getProjects(tree);
   const chosenProject = projects.get(options.project);
-  const projectRoot = `${chosenProject.sourceRoot}/${options.name}`;
+  const projectRoot = `${chosenProject.sourceRoot}/${options.path}`;
 
   if (tree.exists(projectRoot)) {
     throw new Error(`Component ${options.name} already exists at ${projectRoot}`);
@@ -25,7 +25,11 @@ export async function componentGenerator(
 
 
   options.prefix = chosenProject['prefix'];
+  const splittedPath = options.path.split('/')
+  options.name = splittedPath.pop();
   options.componentName = capitalize(options.prefix) + capitalize(options.name);
+  options.storybookTitle = `${splittedPath.join('/')}/${options.componentName}`;
+
   generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
   await formatFiles(tree);
 }
