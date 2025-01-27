@@ -1,0 +1,10 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: '<%= prefix %>-<%= name %>',
+  imports: [CommonModule],
+  templateUrl: './<%= name %>.component.html',
+  styleUrl: './<%= name %>.component.scss',
+})
+export class <%= componentName %> {}

@@ -1,0 +1,48 @@
+{
+  "name": "rm-angular-plugin",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/rm-angular-plugin/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/rm-angular-plugin",
+        "main": "tools/rm-angular-plugin/src/index.ts",
+        "tsConfig": "tools/rm-angular-plugin/tsconfig.lib.json",
+        "assets": [
+          "tools/rm-angular-plugin/*.md",
+          {
+            "input": "./tools/rm-angular-plugin/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/rm-angular-plugin/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/rm-angular-plugin",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./tools/rm-angular-plugin",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "tools/rm-angular-plugin/jest.config.ts"
+      }
+    }
+  }
+}

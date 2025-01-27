@@ -1,0 +1,15 @@
+import type { Meta, StoryObj } from '@storybook/angular';
+import { <%= componentName %> } from './<%= name %>.component';
+import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+const meta: Meta<<%= componentName %>> = {
+  component: <%= componentName %>,
+  title: '<%= componentName %>',
+};
+export default meta;
+type Story = StoryObj<<%= componentName %>>;
+
+export const Primary: Story = {
+  args: {},
+};
