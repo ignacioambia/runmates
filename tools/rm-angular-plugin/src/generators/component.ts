@@ -13,7 +13,11 @@ export async function componentGenerator(
   options: ComponentGeneratorSchema
 ) {
 
-  const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+  const toCamelCase = (str: string) => {
+    return str.split('-').map( function (str){
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }).join('')
+  }
 
   const projects = getProjects(tree);
   const chosenProject = projects.get(options.project);
@@ -27,7 +31,7 @@ export async function componentGenerator(
   options.prefix = chosenProject['prefix'];
   const splittedPath = options.path.split('/')
   options.name = splittedPath.pop();
-  options.componentName = capitalize(options.prefix) + capitalize(options.name);
+  options.componentName = toCamelCase(options.prefix) + toCamelCase(options.name);
   options.storybookTitle = `${splittedPath.join('/')}/${options.componentName}`;
 
   generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
