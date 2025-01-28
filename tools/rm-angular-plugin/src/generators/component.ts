@@ -28,8 +28,8 @@ export async function componentGenerator(
   options.prefix = chosenProject['prefix'];
   options.name = splittedPath.pop();
   options.componentName = toCamelCase(options.prefix) + toCamelCase(options.name);
-  options.storybookTitle = `${splittedPath.join('/')}/${options.componentName}`;
-
+  const storybookPath = splittedPath.length > 0 ? `${splittedPath.join('/')}/` : '';
+  options.storybookTitle = `${storybookPath}${options.componentName}`;
   if (tree.exists(projectRoot)) {
     throw new Error(`Component "${options.name}" already exists at ${projectRoot}`);
   }
