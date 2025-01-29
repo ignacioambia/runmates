@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "c": "nx g @runmates/rm-angular-plugin:component"
+    "c": "nx g @runmates/rm-angular-plugin:component",
+    "sb": "nx storybook"
   },
   "private": true,
   "dependencies": {
