@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "c": "nx g @runmates/rm-angular-plugin:component",
-    "sb": "nx storybook"
+    "sb": "nx storybook",
+    "start": "nx serve"
   },
   "private": true,
   "dependencies": {
