@@ -4,10 +4,10 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 
 @Component({
   imports: [NxWelcomeComponent, RouterModule],
-  selector: 'app-root',
+  selector: 'web-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class WebComponent {
   title = 'runmates-web';
 }

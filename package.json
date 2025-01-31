@@ -2,7 +2,11 @@
   "name": "@runmates/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "c": "nx g @runmates/rm-angular-plugin:component",
+    "sb": "nx storybook",
+    "start": "nx serve"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~19.0.0",
