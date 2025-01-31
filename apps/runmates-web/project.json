@@ -19,6 +19,10 @@
         "assets": [
           {
             "glob": "**/*",
+            "input": "assets"
+          },
+          {
+            "glob": "**/*",
             "input": "apps/runmates-web/public"
           }
         ],

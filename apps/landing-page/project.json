@@ -20,6 +20,10 @@
           {
             "glob": "**/*",
             "input": "apps/landing-page/public"
+          },
+          {
+            "glob": "**/*",
+            "input": "assets"
           }
         ],
         "styles": ["libs/ui/src/styles/_global.scss","apps/landing-page/src/styles.scss"],
