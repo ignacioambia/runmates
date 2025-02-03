@@ -1,12 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { WebComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { RouterModule } from '@angular/router';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WebComponent, NxWelcomeComponent, RouterModule.forRoot([])],
+      imports: [WebComponent, RouterModule.forRoot([])],
     }).compileComponents();
   });
 
