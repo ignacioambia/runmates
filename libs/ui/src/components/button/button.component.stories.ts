@@ -21,3 +21,10 @@ export const Disabled: Story = {
     template: '<button rm-button [disabled]="true">Click me</button>'
   })
 };
+
+export const FullWidth: Story = {
+  args: {},
+  render: () => ({
+    template: '<button rm-button style="width: 100%">Click me</button>'
+  })
+};
