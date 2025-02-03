@@ -1,0 +1,66 @@
+:host {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
+ justify-content: space-between;
+ font-family: 'Audiowide';
+ width: clamp(650px, 60vw, 950px);
+ margin: auto;
+ height: 100vh;
+
+ .header {
+  margin-top: 60px;
+  h1 {
+   margin: 0;
+   font-size: 96px;
+   background-image: linear-gradient(var(--primary-color), var(--secondary-color));
+   color: transparent;
+   background-clip: text;
+   margin-top: 15px;
+  }
+
+  h4 {
+   font-size: 20px;
+   margin: 0px;
+   color: var(--secondary-color);
+  }
+ }
+
+ .launch-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 7vw ,87px);
+  padding: 10px;
+
+  form {
+   display: flex;
+   flex-direction: column;
+   gap: 28px;
+   button[rm-button] {
+    width: 100%;
+    margin-top: 10px;
+   }
+  }
+
+  .countdown-wrapper {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+
+   .coming-soon {
+    font-size: 32px;
+   }
+  }
+ }
+
+ .app-buttons {
+  display: flex;
+  gap: 18px;
+  margin: 20px;
+
+  img {
+   height: 40px;
+  }
+ }
+}
