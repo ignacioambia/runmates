@@ -1,0 +1,16 @@
+:host {
+ background: var(--primary-color);
+ border-radius: 8px;
+ font-family: 'Audiowide';
+ color: white;
+ border: none;
+ cursor: pointer;
+ padding: 12px 28px;
+ &:hover {
+  background: linear-gradient(var(--secondary-color), var(--primary-color));
+ }
+
+ &:active {
+  background: var(--secondary-color);
+ }
+}
