@@ -1,0 +1,70 @@
+.input-wrapper {
+ position: relative;
+ $padding: 4px;
+ background: white;
+ .input-element {
+  border: 1px solid var(--secondary-text-color);
+  box-sizing: border-box;
+  padding: $padding;
+  border-radius: 8px;
+  width: 100%;
+  transition: 0.3s;
+ 
+  .label {
+   position: absolute;
+   font-family: 'Audiowide';
+   top: 50%;
+   transform: translateY(-50%);
+   left: $padding*2;
+   background: white;
+   padding: 0px $padding;
+   background: white;
+   font-size: 14px;
+   transition: 0.3s;
+   pointer-events: none;
+  }
+ 
+  input {
+   font-size: 14px;
+   padding: $padding;
+   box-sizing: border-box;
+   width: 100%;
+   outline: none;
+   border: none;
+   padding-left: $padding*2;
+  }
+ }
+
+ .error-message {
+  position: absolute;
+  color: var(--error-color);
+  right: $padding;
+  line-height: 16px;
+  font-size: 12px;
+  transform: translateY(-14px);
+  transition: transform 0.3s;
+  z-index: -1;
+ }
+
+ &.active {
+  .input-element {
+   border: 1px solid var(--secondary-color);
+  }
+ }
+
+ &.label-up {
+  .input-element .label {
+   top: 0px;
+   font-size: 12px;
+  }
+ }
+
+ &.error {
+  .input-element {
+   border:  1px solid var(--error-color);
+  }
+  .error-message {
+   transform: translateY(0px);
+  }
+ }
+}
