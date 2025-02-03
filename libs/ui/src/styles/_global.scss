@@ -1,2 +1,11 @@
 @use './variables';
 
+body {
+ color: var(--text-color);
+ font-family: 'Avenir Next';
+}
+
+input {
+ font-family: 'Avenir Next';
+}
+
