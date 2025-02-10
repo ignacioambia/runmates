@@ -1,27 +1,25 @@
 <div class="header">
- <div>
-  <img src="logo.svg" alt="runmates logo" width="164px">
- </div>
- <h1>RUNMATES</h1>
- <h4>Train Hard / Race Smart / Run Together</h4>
+  <img src="logo.svg" alt="runmates logo">
+  <h1>RUNMATES</h1>
+  <h4>Train Hard / Race Smart / Run Together</h4>
 </div>
 
 <div class="launch-info">
- <div class="countdown-wrapper">
-  <h3>Tu entrenador personal para tus carreras</h3>
-  <ld-coundown></ld-coundown>
-  <div class="coming-soon">
-   PRÓXIMAMENTE
+  <div class="countdown-wrapper">
+    <h3>Tu entrenador personal para tus carreras</h3>
+    <ld-coundown></ld-coundown>
+    <div class="coming-soon">
+      PRÓXIMAMENTE
+    </div>
   </div>
- </div>
- <div>
-  <p>Sé el primero en enterarte</p>
-  <form [formGroup]="infoFg">
-   <rm-input formControlName="name" label="Nombre"></rm-input>
-   <rm-input formControlName="email" label="Correo electrónico" errorMessage="Correo inválido"></rm-input>
-   <button rm-button [disabled]="!validForm">Enterarme del lanzamiento</button>
-  </form>
- </div>
+  <div>
+    <p>Sé el primero en enterarte</p>
+    <form [formGroup]="infoFg">
+      <rm-input formControlName="name" label="Nombre"></rm-input>
+      <rm-input formControlName="email" label="Correo electrónico" errorMessage="Correo inválido"></rm-input>
+      <button rm-button [disabled]="!validForm">Enterarme del lanzamiento</button>
+    </form>
+  </div>
 </div>
 
 <div class="app-buttons">

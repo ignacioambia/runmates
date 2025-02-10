@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { RmButton, RmInput } from '@runmates/ui';
-import { LdCoundown } from "./coundown/coundown.component";
+import { LdCoundown } from './coundown/coundown.component';
 
 @Component({
   selector: 'ld-home',
