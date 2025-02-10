@@ -1,7 +1,14 @@
 :root {
+
+ /** colors **/
  --primary-color: #ff6600;
  --secondary-color: #ff9900;
  --error-color: #A52A2A;
  --text-color: #1e1e1e;
- --secondary-text-color: #999999
+ --secondary-text-color: #999999;
+
+ /** breakpoints **/
+ --mobile: 600px;
+ --tablet: 900px;
+ --desktop: 1200px;
 }
