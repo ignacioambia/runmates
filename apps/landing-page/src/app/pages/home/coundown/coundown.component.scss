@@ -1,6 +1,7 @@
 .cards {
  display: flex;
- justify-content: space-between;
+ justify-content: center;
+ gap: 1rem;
  .card {
   $border-radius: 12px;
   justify-content: space-between;
