@@ -26,6 +26,7 @@
     "@capacitor/ios": "^6.0.0",
     "@capacitor/keyboard": "^6.0.0",
     "@capacitor/status-bar": "^6.0.0",
+    "@fontsource/audiowide": "^5.1.1",
     "@ionic/angular": "^8.0.0",
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
