@@ -21,5 +21,4 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
   ],
 })
 export class Tab1Page {
-  constructor() {}
 }
