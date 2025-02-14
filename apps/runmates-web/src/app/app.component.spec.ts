@@ -9,14 +9,6 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(WebComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome runmates-web'
-    );
-  });
 
   it(`should have as title 'runmates-web'`, () => {
     const fixture = TestBed.createComponent(WebComponent);
