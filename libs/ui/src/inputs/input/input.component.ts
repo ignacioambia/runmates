@@ -46,7 +46,6 @@ export class RmInput implements ControlValueAccessor, OnInit {
   public get hasError(): boolean {
     if (this.ngControl) {
       const { touched, dirty, invalid } = this.ngControl;
-      console.log('touced, dirty, invalid:', { touched, dirty, invalid})
       return (invalid && touched && dirty) || false;
     }
     return false;
