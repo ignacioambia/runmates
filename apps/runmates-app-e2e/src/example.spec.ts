@@ -4,5 +4,5 @@ test('has title', async ({ page }) => {
   await page.goto('/');
 
   // Expect h1 to contain a substring.
-  expect((await page.locator('#container p').innerText()).trim()).toContain('Explore UI Components');
+  expect((await page.locator('app-home div').innerText()).trim()).toContain('Runmates app working!');
 });
