@@ -26,7 +26,7 @@ var __TEARDOWN_MESSAGE__: string;
 module.exports = async function () {
   // Start services that that the app needs to run (e.g. database, docker-compose, etc.).
   console.log('\nSetting up...\n');
-  exec('npx nx run runmates-back:serve');
+  exec('yarn start runmates-back');
   await waitForBackend();
 
   // Hint: Use `globalThis` to pass variables to global teardown.
