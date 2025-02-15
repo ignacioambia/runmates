@@ -24,6 +24,7 @@
           }
         ],
         "styles": [
+          "libs/ui/src/styles/_global.scss",
           "apps/runmates-app/src/styles.scss",
           "apps/runmates-app/src/theme/variables.scss",
           "node_modules/@ionic/angular/css/core.css",

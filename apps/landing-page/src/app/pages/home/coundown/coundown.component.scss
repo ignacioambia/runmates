@@ -1,0 +1,63 @@
+.cards {
+ display: flex;
+ justify-content: center;
+ gap: 1rem;
+ .card {
+  $border-radius: 12px;
+  justify-content: space-between;
+  border-radius: $border-radius;
+  width: 64px;
+  height: 64px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .value {
+   font-size: 24px;
+  }
+  .label {
+   font-size: 13px;
+  }
+
+  &.days {
+   background: linear-gradient(var(--primary-color), var(--secondary-color));
+  }
+  &.hours {
+   width: 62px;
+   height: 62px;
+   position: relative;
+   color: var(--primary-color);
+   background: white;
+   &::before {
+    content: '';
+    inset: 0px;
+    margin: -2px;
+    background: linear-gradient(var(--primary-color), var(--secondary-color));
+    position: absolute;
+    z-index: -1;
+    // border-radius: $border-radius;
+    border-radius: 14px;
+   }
+  }
+  &.minutes {
+   background: linear-gradient(var(--secondary-color), var(--primary-color));
+  }
+  &.seconds {
+   width: 62px;
+   height: 62px;
+   position: relative;
+   color: var(--primary-color);
+   background: white;
+   &::before {
+    content: '';
+    inset: 0px;
+    margin: -2px;
+    background: linear-gradient(var(--secondary-color), var(--primary-color));
+    position: absolute;
+    z-index: -1;
+    border-radius: 14px;
+   }
+  }
+ }
+}

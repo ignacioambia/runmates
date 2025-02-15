@@ -1,0 +1,9 @@
+<div class="input-wrapper" [ngClass]="{ 'active': active, 'label-up': labelUp, 'error': hasError }">
+ <div class="input-element">
+  <span class="label">{{ label() }}</span>
+  <input type="text" [(ngModel)]="value" (ngModelChange)="change($event)">
+ </div>
+ <span class="error-message">{{ errorMessage() }}</span>
+</div>
+
+

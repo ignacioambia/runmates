@@ -19,10 +19,14 @@
         "assets": [
           {
             "glob": "**/*",
+            "input": "assets"
+          },
+          {
+            "glob": "**/*",
             "input": "apps/runmates-web/public"
           }
         ],
-        "styles": ["apps/runmates-web/src/styles.scss"],
+        "styles": ["libs/ui/src/styles/_global.scss","apps/runmates-web/src/styles.scss"],
         "scripts": [],
         "server": "apps/runmates-web/src/main.server.ts",
         "ssr": {

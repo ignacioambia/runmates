@@ -20,9 +20,16 @@
           {
             "glob": "**/*",
             "input": "apps/landing-page/public"
+          },
+          {
+            "glob": "**/*",
+            "input": "assets"
           }
         ],
-        "styles": ["apps/landing-page/src/styles.scss"],
+        "styles": [
+          "libs/ui/src/styles/_global.scss",
+          "apps/landing-page/src/styles.scss"
+        ],
         "scripts": [],
         "server": "apps/landing-page/src/main.server.ts",
         "ssr": {
