@@ -5,7 +5,7 @@
   "scripts": {
     "c": "nx g @runmates/rm-angular-plugin:component",
     "sb": "nx storybook",
-    "start": "nx serve",
+    "start": "echo 'hello world\n'",
     "build": "nx build"
   },
   "private": true,
