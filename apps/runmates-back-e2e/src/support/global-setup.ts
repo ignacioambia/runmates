@@ -1,4 +1,4 @@
-import { exec } from 'child_process';
+import { spawn } from 'child_process';
 import http from 'http';
 
 const backendUrl = "http://localhost:3000";
@@ -26,8 +26,9 @@ var __TEARDOWN_MESSAGE__: string;
 module.exports = async function () {
   // Start services that that the app needs to run (e.g. database, docker-compose, etc.).
   console.log('\nSetting up...\n');
-  exec('yarn start runmates-back');
-  await waitForBackend();
+  const backendProcess = spawn("yarn", ["start", "runmates-back"], { stdio: "inherit" });
+
+  backendProcess.on("error", (err) => console.error("Failed to start backend:", err));  await waitForBackend();
 
   // Hint: Use `globalThis` to pass variables to global teardown.
   globalThis.__TEARDOWN_MESSAGE__ = '\nTearing down...\n';
