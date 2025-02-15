@@ -1,2 +1,9 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+html:root.ios,
+html:root.android {
+ --ion-color-primary: var(--primary-color);
+ --ion-background-color: white;
+ --ion-text-color: var(--text-color);
+}
