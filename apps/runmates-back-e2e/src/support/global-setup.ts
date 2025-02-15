@@ -31,5 +31,6 @@ module.exports = async function () {
   backendProcess.on("error", (err) => console.error("Failed to start backend:", err));  await waitForBackend();
 
   // Hint: Use `globalThis` to pass variables to global teardown.
-  globalThis.__TEARDOWN_MESSAGE__ = '\nTearing down...\n';
+  globalThis.__TEARDOWN_MESSAGE__ = '\nStopping runmates-backn...\n';
+  globalThis.__BACKEND_PROCESS__ = backendProcess;
 };
