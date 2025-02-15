@@ -1,0 +1,13 @@
+@use './variables';
+@use "@fontsource/audiowide";
+
+body {
+ color: var(--text-color);
+ font-family: 'Avenir Next';
+ margin: 0px;
+}
+
+input {
+ font-family: 'Avenir Next';
+}
+
