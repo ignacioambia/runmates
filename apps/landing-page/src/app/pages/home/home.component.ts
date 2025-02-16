@@ -19,7 +19,7 @@ import { finalize, Subscription } from 'rxjs';
   styleUrl: './home.component.scss',
 })
 export class LdHome {
-  public validForm = true;
+  public validForm = false;
   public isSubmitting = false;
   public infoFg = new FormGroup({
     name: new FormControl(''),
