@@ -22,6 +22,13 @@ export const Disabled: Story = {
   })
 };
 
+export const Loading: Story = {
+  args: {},
+  render: () => ({
+    template: '<button rm-button [loading]="true">Click me</button>'
+  })
+};
+
 export const FullWidth: Story = {
   args: {},
   render: () => ({
