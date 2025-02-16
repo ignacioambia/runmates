@@ -11,3 +11,6 @@ input {
  font-family: 'Avenir Next';
 }
 
+::selection {
+ background: rgba(255,153,0,0.3);
+}

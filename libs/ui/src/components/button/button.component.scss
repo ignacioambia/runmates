@@ -7,6 +7,28 @@
  cursor: pointer;
  padding: 12px 28px;
  user-select: none;
+ position: relative;
+
+ rm-loader-dots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+ }
+
+ &.loading {
+  cursor: default;
+  opacity: 0.7;
+  pointer-events: none;
+  rm-loader-dots {
+   display: block;
+  }
+
+  .content {
+   opacity: 0;
+  }
+ }
  
  &:hover {
   background: linear-gradient(var(--secondary-color), var(--primary-color));
