@@ -1,0 +1,12 @@
+<div class="overlay">
+ <div class="dialog" @dialogAnimation [ngClass]="{'with-icon': dialogParams.icon}">
+  @if (dialogParams.icon) {
+   <div class="icon-wrapper">
+    <ng-container *ngComponentOutlet="dialogParams.icon"></ng-container>
+   </div>
+  }
+  <h2>{{ dialogParams.title }}</h2>
+  <p>{{ dialogParams.content }}</p>
+  <button rm-button (click)="closeDialog()">Confirmar</button>
+ </div>
+</div>
