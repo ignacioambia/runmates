@@ -14,10 +14,10 @@
   </div>
   <div>
     <p>Sé el primero en enterarte</p>
-    <form [formGroup]="infoFg">
+    <form [formGroup]="infoFg" (ngSubmit)="submitLead()">
       <rm-input formControlName="name" label="Nombre"></rm-input>
       <rm-input formControlName="email" label="Correo electrónico" errorMessage="Correo inválido"></rm-input>
-      <button rm-button [disabled]="!validForm">Enterarme del lanzamiento</button>
+      <button rm-button [disabled]="!validForm" [loading]="isSubmitting">Enterarme del lanzamiento</button>
     </form>
   </div>
 </div>
