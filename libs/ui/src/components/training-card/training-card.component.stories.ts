@@ -1,7 +1,6 @@
-import { trainingWithThreeSeesions } from './@mocks/trainings';
+import { trainingWithOneSession, trainingWithTwoSessions, trainingWithThreeSessions } from './@mocks/trainings.mock';
 import {
   argsToTemplate,
-  componentWrapperDecorator,
   type Meta,
   type StoryObj,
 } from '@storybook/angular';
@@ -18,18 +17,7 @@ type Story = StoryObj<RmTrainingCard>;
 
 export const Single: Story = {
   args: {
-    training: {
-      activities: [
-        {
-          title: 'Easy Run',
-          distance: 5,
-        },
-      ],
-      notes:
-        'Here we go, week 1 of your training!. Kick off your training. Remember dynamic warm up! Run at a pace between 7:11 and 7:54 per km.',
-      intensity: 'low',
-      weekday: 'Monday',
-    },
+    training: trainingWithOneSession,
   },
   render: (args) => ({
     props: args,
@@ -43,22 +31,7 @@ export const Single: Story = {
 
 export const Double: Story = {
   args: {
-    training: {
-      activities: [
-        {
-          title: 'Easy Run',
-          distance: 5,
-        },
-        {
-          title: 'Strides',
-          complementary_training: '4X20s',
-        },
-      ],
-      intensity: 'medium',
-      notes:
-        'Run easy but end with high-effort strides to build speed and agility. Perform four 20-second strides at near max effort. Keep a comfortable pace throughout your run.',
-      weekday: 'Wednesday',
-    },
+    training: trainingWithTwoSessions
   },
   render: (args) => ({
     props: args,
@@ -72,7 +45,7 @@ export const Double: Story = {
 
 export const Triple: Story = {
   args: {
-    training: trainingWithThreeSeesions,
+    training: trainingWithThreeSessions,
   },
   render: (args) => ({
     props: args,
