@@ -1,7 +1,9 @@
+export type TrainingIntensity = "rest" | "low" | "medium" | "high";
+
 export interface Training {
   activities: TrainingActivity[];
   notes: string;
-  intensity: "low" | "medium" | "high" | "rest";
+  intensity: TrainingIntensity;
   weekday: string
 }
 
