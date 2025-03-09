@@ -3,7 +3,7 @@ import { RmPartyIcon } from './party.component';
 
 export default {
   component: RmPartyIcon,
-  title: 'components/icons/RmParty',
+  title: 'icons/RmParty',
 } as Meta<RmPartyIcon>;
 
 type Story = StoryObj<RmPartyIcon>;

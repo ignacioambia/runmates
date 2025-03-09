@@ -1,0 +1,18 @@
+<div class="training-card" [class]="status()">
+ <div class="status-chip">
+  <span class="status-icon">{{ statusIcon() }}</span>
+  <span class="status-message">{{ statusMessage() }}</span>
+ </div>
+ <div class="header">
+  <div class="weekday">{{ training()?.weekday }}</div>
+  <rm-intensity [intensity]="training()?.intensity" />
+ </div>
+ <div class="body">
+  @for(activity of training()?.activities; track activity.title) {
+  <div class="activity">
+   <div class="title">{{ activity.title }}</div>
+   <div class="value">{{ activity.distance ? activity.distance + 'km' : activity.complementary_training }}</div>
+  </div>
+  }
+ </div>
+</div>
