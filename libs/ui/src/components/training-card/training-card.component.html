@@ -1,0 +1,13 @@
+<div class="training-card">
+ <div class="header">
+  <div class="weekday">{{ training()?.weekday }}</div>
+ </div>
+ <div class="body">
+  @for(activity of training()?.activities; track activity.title) {
+   <div class="activity">
+    <div class="title">{{ activity.title }}</div>
+    <div class="value">{{ activity.distance + 'km' || activity.complementary_training }}</div> 
+   </div>
+  }
+ </div>
+</div>

@@ -1,0 +1,44 @@
+.training-card {
+ background: white;
+ border-radius: 8px;
+ border: 1px solid #DCDCDC;
+ padding: 8px;
+ padding-bottom: 4px;
+
+ .header {
+  font-size: 1rem;
+  font-family: 'Avenir';
+  font-weight: 500;
+  border-bottom: 1px solid #eaeaea;
+  color: #909090;
+ }
+
+ .body {
+  margin-top: 3px;
+  .activity {
+   display: flex;
+   flex-direction: column;
+   gap: 3px;
+   justify-content: center;
+   justify-content: center;
+   align-items: center;
+
+   .title {
+    font-family: 'Avenir';
+    font-weight: 100;
+    font-size: 1.6rem;
+    color: #909090;
+   }
+
+   .value {
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+    font-weight: bold;
+    background-image: radial-gradient(circle, #FFC107, #FF6600);
+    -webkit-background-clip: text; /* For Safari and Chrome */
+    background-clip: text;
+    color: transparent;
+   }
+  }
+ }
+}
