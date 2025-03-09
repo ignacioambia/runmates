@@ -18,6 +18,9 @@
 
  .body {
   margin-top: 3px;
+  display: grid;
+  gap: 3px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   .activity {
    display: flex;
    flex-direction: column;
@@ -31,16 +34,22 @@
     font-weight: 100;
     font-size: 1.4rem;
     color: #909090;
+    text-align: center;
+   }
+
+   &:not(:last-child) {
+    border-right: 1px solid #eaeaea;
    }
 
    .value {
-    font-size: 2.4rem;
+    font-size: 2rem;
     line-height: 2.4rem;
     font-weight: bold;
     background-image: radial-gradient(circle, #FFC107, #FF6600);
     -webkit-background-clip: text; /* For Safari and Chrome */
     background-clip: text;
     color: transparent;
+    text-align: center;
    }
   }
  }
