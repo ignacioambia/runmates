@@ -1,6 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Training } from '@runmates/types';
+import { Training, TrainingStatus } from '@runmates/types';
 import { RmIntensity } from "../feedback/intensity/intensity.component";
 
 @Component({
@@ -11,4 +11,7 @@ import { RmIntensity } from "../feedback/intensity/intensity.component";
 })
 export class RmTrainingCard {
   public training = input<Training>();
+  public status = input<TrainingStatus>();
+  public statusMessage = computed(() => this.status() === 'completed' ? 'Finalizado': 'Saltado');
+  public statusIcon = computed(() => this.status() === 'completed' ? '🚀': '😕');
 }

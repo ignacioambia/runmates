@@ -37,7 +37,7 @@ export const trainingWithThreeSessions: Training = {
       complementary_training: '10min',
     },
     {
-      title: 'Speed Session',
+      title: 'Speed',
       complementary_training: '6x',
     },
     {
