@@ -2,7 +2,7 @@ import { Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Training, WeekDay } from "@runmates/types";
 import { HydratedDocument } from "mongoose";
 
-export type CatDocument = HydratedDocument<TrainingPlan>;
+export type TrainingPlanDocument = HydratedDocument<TrainingPlan>;
 
 @Schema()
 export class TrainingPlan implements Record<string, Record<WeekDay, Training>>{
