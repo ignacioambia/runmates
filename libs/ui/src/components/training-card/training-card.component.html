@@ -1,6 +1,7 @@
 <div class="training-card">
  <div class="header">
   <div class="weekday">{{ training()?.weekday }}</div>
+  <rm-intensity [intensity]="training()?.intensity"/>
  </div>
  <div class="body">
   @for(activity of training()?.activities; track activity.title) {

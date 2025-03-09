@@ -6,6 +6,9 @@
  padding-bottom: 4px;
 
  .header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2px;
   font-size: 1rem;
   font-family: 'Avenir';
   font-weight: 500;
@@ -26,7 +29,7 @@
    .title {
     font-family: 'Avenir';
     font-weight: 100;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #909090;
    }
 

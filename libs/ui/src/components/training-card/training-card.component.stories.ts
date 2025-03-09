@@ -11,7 +11,7 @@ export default {
 
 type Story = StoryObj<RmTrainingCard>;
 
-export const Primary: Story = {
+export const Single: Story = {
   args: {
     training: {
       activities: [
