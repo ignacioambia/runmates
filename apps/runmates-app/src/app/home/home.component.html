@@ -1,1 +1,20 @@
-<div>Runmates app working!</div>
+<!-- <div class="parent">
+ <div class="grid">
+  @for(training of trainingPlans; track training.weekday) {
+   <rm-training-card [ngClass]="{full : training.activities.length > 1}" [training]="training" />
+  }
+ </div>
+  
+</div> -->
+<ion-content>
+ <div class="mateo-messages">
+  @for(training of trainingPlans; track training.weekday) {
+   <rm-message [user]="mateo">
+    <rm-training-card [training]="training" />
+    <div class="mateo-message">{{training.notes}}</div>
+   </rm-message>
+  } 
+ </div>
+
+</ion-content>
+
