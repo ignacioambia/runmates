@@ -59,8 +59,8 @@
  .header {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 2px;
-  font-size: 1rem;
+  padding-bottom: 4px;
+  font-size: 0.9rem;
   font-family: 'Avenir';
   font-weight: 500;
   border-bottom: 1px solid #eaeaea;
@@ -72,7 +72,7 @@
   display: grid;
   grid-auto-flow: column;
   gap: 3px;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
   grid-auto-flow: dense;
   .activity {
    display: flex;
@@ -85,30 +85,20 @@
    .title {
     font-family: 'Avenir';
     font-weight: 100;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #909090;
     text-align: center;
    }
 
-   &:last-child:not(:first-child) {
 
 
-
-    grid-column-start: 1;
-    grid-column-end: -1;
-    border-top: 1px solid #eaeaea;
-
-
-   }
-
-
-   &:first-child:not(:last-child) {
+   &:not(:last-child) {
     border-right: 1px solid #eaeaea;
    }
 
    .value {
-    font-size: 2rem;
-    line-height: 2.4rem;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
     font-weight: bold;
     background-image: radial-gradient(circle, #FFC107, #FF6600);
     -webkit-background-clip: text; /* For Safari and Chrome */
