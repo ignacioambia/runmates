@@ -1,8 +1,7 @@
-<div class="message-box">
+<div class="message-box" [class]="type()">
  <div class="avatar-wrapper">
-  <div class="name">{{ user()?.name }}</div>
   <div class="avatar">
-   <img [src]="user()?.profilePicUrl" alt="">
+   <img [src]="avatar()" alt="">
   </div>
  </div>
  <div class="message"><ng-content></ng-content></div>
