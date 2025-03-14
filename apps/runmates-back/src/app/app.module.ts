@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { LeadModule } from './lead/lead.module';
+import { TrainingPlanModule } from './training-plan/training-plan.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { LeadModule } from './lead/lead.module';
       }),
     }),
     LeadModule,
+    TrainingPlanModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -8,7 +8,7 @@
   <rm-intensity [intensity]="training()?.intensity" />
  </div>
  <div class="body">
-  @for(activity of training()?.activities; track activity.title) {
+  @for(activity of training()?.activities; track $index) {
   <div class="activity">
    <div class="title">{{ activity.title }}</div>
    <div class="value">{{ activity.distance ? activity.distance + 'km' : activity.complementary_training }}</div>

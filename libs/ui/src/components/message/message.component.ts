@@ -1,6 +1,5 @@
 import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { User } from '@runmates/types';
 
 @Component({
   selector: 'rm-message',
@@ -9,5 +8,6 @@ import { User } from '@runmates/types';
   styleUrl: './message.component.scss',
 })
 export class RmMessage {
-  public user = input<User>();
+  public avatar = input<string>();
+  public type = input<'sent' | 'received'>();
 }
