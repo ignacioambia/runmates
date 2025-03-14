@@ -13,8 +13,3 @@ export interface TrainingActivity {
   distance?: number;
   complementary_training?: string;
 }
-
-export interface User {
-  name: string;
-  profilePicUrl: string;
-}

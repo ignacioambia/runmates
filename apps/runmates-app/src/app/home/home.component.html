@@ -1,20 +1,13 @@
-<!-- <div class="parent">
- <div class="grid">
-  @for(training of trainingPlans; track training.weekday) {
-   <rm-training-card [ngClass]="{full : training.activities.length > 1}" [training]="training" />
-  }
- </div>
-  
-</div> -->
 <ion-content>
- <div class="mateo-messages">
-  @for(training of trainingPlans; track training.weekday) {
-   <rm-message [user]="mateo">
-    <rm-training-card [training]="training" />
-    <div class="mateo-message">{{training.notes}}</div>
-   </rm-message>
-  } 
- </div>
-
+ <div class="parent">
+  <rm-message type="received" avatar="https://picsum.photos/200/300">
+  <div class="mateo-message">Some message from Mateo</div>
+ </rm-message>
+<div class="grid">
+@for(training of trainingPlans; track training.weekday) {
+ <rm-training-card  (click)="goToTraining(training)" [ngClass]="{full : training.activities.length > 1}" [training]="training" />
+}
+</div>
+</div>
 </ion-content>
 
