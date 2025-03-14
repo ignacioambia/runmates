@@ -38,6 +38,10 @@
       "options": {
         "passWithNoTests": true
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build --platform linux/amd64 -f apps/runmates-back/Dockerfile . -t runmates-back"
     }
   }
 }
