@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppHome } from './home.component';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('AppHome', () => {
   let component: AppHome;
@@ -7,6 +8,7 @@ describe('AppHome', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [provideHttpClient()],
       imports: [AppHome],
     }).compileComponents();
 
