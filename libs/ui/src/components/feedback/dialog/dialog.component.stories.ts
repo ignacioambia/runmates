@@ -1,7 +1,7 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { RmDialog } from './dialog.component';
 import { RM_DIALOG_PARAMS } from '../../../services';
-import { RmPartyIcon } from '../../icons/party/party.component';
+import { RmPartyIcon } from '../../../icons/party/party.component';
 import { RmDialogParams } from './dialog.model';
 
 export default {

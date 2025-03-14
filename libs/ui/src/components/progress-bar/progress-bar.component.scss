@@ -1,0 +1,15 @@
+.progress-bar-wrapper {
+ $height: 8px;
+ $border-radius: 3px;
+
+ height: $height;
+ width: 100%;
+ border-radius: $border-radius;
+ background: var(--gray-dark-background);
+
+ .progress-bar {
+  height: $height;
+  background: linear-gradient(90deg, var(--secondary-color),var(--primary-color));
+  border-radius: $border-radius;
+ }
+}
