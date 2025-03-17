@@ -20,6 +20,7 @@
       "@runmates/types": ["libs/types/src/index.ts"],
       "@runmates/types/*": ["libs/types/src/*.ts"],
       "@runmates/ui": ["libs/ui/src/index.ts"],
+      "@runmates/ui/*": ["libs/ui/src/*/index.ts"],
       "@runmates/validators": ["libs/validators/src/index.ts"]
     }
   },
