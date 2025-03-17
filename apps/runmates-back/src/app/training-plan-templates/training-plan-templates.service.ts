@@ -1,11 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTrainingPlanTemplateDto } from './dto/create-training-plan-template.dto';
 import { UpdateTrainingPlanTemplateDto } from './dto/update-training-plan-template.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { TrainingPlanTemplate } from './entities/training-plan-template.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class TrainingPlanTemplatesService {
+  constructor(@InjectRepository(TrainingPlanTemplate) private readonly trainingPlanTemplateRepository: Repository<TrainingPlanTemplate>) {}
   create(createTrainingPlanTemplateDto: CreateTrainingPlanTemplateDto) {
-    return 'This action adds a new trainingPlanTemplate';
+    const plan = this.trainingPlanTemplateRepository.create(createTrainingPlanTemplateDto);
+    return this.trainingPlanTemplateRepository.save(plan);
   }
 
   findAll() {
