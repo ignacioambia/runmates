@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 import { TrainingPlanTemplate } from "./training-plan-template.entity";
-import { TrainingIntensity } from "@runmates/types";
+import { TrainingIntensity } from "@runmates/types/training-plans";
 
 @Entity()
 export class DailyTrainingPlanTemplate {
