@@ -1,4 +1,4 @@
-import { Training } from '@runmates/types';
+import { Training } from '@runmates/types/training-plans';
 
 export const trainingWithOneSession: Training = {
   activities: [

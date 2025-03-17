@@ -1,7 +1,7 @@
 import { Component, computed, effect, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RmLightningStrike } from '../../../icons/lightning-strike/lightning-strike.component';
-import { TrainingIntensity } from '@runmates/types';
+import { TrainingIntensity } from '@runmates/types/training-plans';
 
 @Component({
   selector: 'rm-intensity',
