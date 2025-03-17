@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { RmTrainingCard, RmMessage } from '@runmates/ui';
-import { Training } from '@runmates/types';
+import { Training } from '@runmates/types/training-plans';
 import { IonContent } from '@ionic/angular/standalone';
 
 @Component({
