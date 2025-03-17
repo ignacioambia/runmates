@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LeadModule } from './lead/lead.module';
 import { TrainingPlanModule } from './training-plan/training-plan.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TrainingPlanTemplatesModule } from './training-plan-templates/training-plan-templates.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     }),
     LeadModule,
     TrainingPlanModule,
+    TrainingPlanTemplatesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
