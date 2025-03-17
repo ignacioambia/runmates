@@ -18,6 +18,7 @@
       "@runmates/rm-angular-plugin": ["tools/rm-angular-plugin/src/index.ts"],
       "@runmates/styles": ["libs/ui/src/styles/_global.scss"],
       "@runmates/types": ["libs/types/src/index.ts"],
+      "@runmates/types/*": ["libs/types/src/*/index.ts"],
       "@runmates/ui": ["libs/ui/src/index.ts"],
       "@runmates/validators": ["libs/validators/src/index.ts"]
     }
