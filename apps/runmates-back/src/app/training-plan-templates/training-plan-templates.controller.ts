@@ -22,7 +22,7 @@ export class TrainingPlanTemplatesController {
     return this.trainingPlanTemplatesService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch(':id/add-daily-training-plans')
   update(@Param('id') id: string, @Body() updateTrainingPlanTemplateDto: UpdateTrainingPlanTemplateDto) {
     return this.trainingPlanTemplatesService.update(+id, updateTrainingPlanTemplateDto);
   }
