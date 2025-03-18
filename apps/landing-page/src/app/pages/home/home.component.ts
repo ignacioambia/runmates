@@ -10,6 +10,8 @@ import { RmButton, RmDialogService, RmInput, RmPartyIcon } from '@runmates/ui';
 import { LdCoundown } from './coundown/coundown.component';
 import { HttpClient } from '@angular/common/http';
 import { finalize, Subscription } from 'rxjs';
+import { FormGroupControls } from '@runmates/ui/types';
+import { Lead } from '@runmates/types/leads';
 
 @Component({
   selector: 'ld-home',
@@ -21,7 +23,7 @@ import { finalize, Subscription } from 'rxjs';
 export class LdHome {
   public validForm = false;
   public isSubmitting = false;
-  public infoFg = new FormGroup({
+  public infoFg = new FormGroup<FormGroupControls<Lead>>({
     name: new FormControl(''),
     email: new FormControl('', [Validators.required, Validators.email]),
   });

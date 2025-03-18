@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { LeadService } from './lead.service';
 import { LeadController } from './lead.controller';
-import { MongooseModule } from '@nestjs/mongoose';
-import { Lead, LeadSchema } from './schema/lead.schema';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Lead } from './entities/lead.entity';
 
 @Module({
-  imports: [MongooseModule.forFeature([{name: Lead.name, schema: LeadSchema }])],
+  imports: [TypeOrmModule.forFeature([Lead])],
   controllers: [LeadController],
   providers: [LeadService],
 })

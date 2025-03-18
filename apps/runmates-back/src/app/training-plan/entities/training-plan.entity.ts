@@ -1,12 +1,19 @@
-import { Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Training, WeekDay } from "@runmates/types";
-import { HydratedDocument } from "mongoose";
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-export type TrainingPlanDocument = HydratedDocument<TrainingPlan>;
+@Entity()
+export class TrainingPlan {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-@Schema()
-export class TrainingPlan implements Record<string, Record<WeekDay, Training>>{
- [week: string]: Record<WeekDay, Training>
+  @Column()
+  name: string;
+
+  @Column()
+  description: string;
+
+  @Column()
+  training_distance: number;
+
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  created_at: Date;
 }
-
-export const TrainingPLanSchema = SchemaFactory.createForClass(TrainingPlan);

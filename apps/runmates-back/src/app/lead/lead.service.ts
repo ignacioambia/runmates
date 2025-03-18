@@ -1,14 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { CreateLeadDto } from './dto/create-lead.dto';
-import { InjectModel } from '@nestjs/mongoose';
-import { Lead } from './schema/lead.schema';
-import { Model } from 'mongoose';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Lead } from './entities/lead.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class LeadService {
-  constructor(@InjectModel(Lead.name) private leadModel: Model<Lead>) {}
+  constructor(
+    @InjectRepository(Lead) private readonly leadRepository: Repository<Lead>
+  ) {}
   create(createLeadDto: CreateLeadDto) {
-    const createdLead = new this.leadModel(createLeadDto);
-    return createdLead.save();
+    const lead = this.leadRepository.create(createLeadDto);
+    return this.leadRepository.save(lead);
   }
 }
