@@ -1,7 +1,7 @@
 import { Component, input } from "@angular/core";
 import { trainingWithOneSession, trainingWithTwoSessions, trainingWithThreeSessions} from '../trainings.mock';
 import { RmTrainingCard } from "../../training-card.component";
-import { TrainingStatus } from "@runmates/types";
+import { TrainingStatus } from "@runmates/types/training-plans";
 
 @Component({
  selector: 'rm-training-done-example',

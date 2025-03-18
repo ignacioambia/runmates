@@ -1,6 +1,6 @@
 import { Component, computed, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Training, TrainingStatus } from '@runmates/types';
+import { Training, TrainingStatus } from '@runmates/types/training-plans';
 import { RmIntensity } from "../feedback/intensity/intensity.component";
 
 @Component({
