@@ -1,6 +1,6 @@
 {
   "name": "runmates-web",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "web",
   "sourceRoot": "apps/frontend/runmates-web/src",
