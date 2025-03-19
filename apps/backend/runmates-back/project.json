@@ -1,7 +1,7 @@
 {
   "name": "runmates-back",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/runmates-back/src",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/backend/runmates-back/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -41,7 +41,7 @@
     },
     "docker-build": {
       "dependsOn": ["build"],
-      "command": "docker build --platform linux/amd64 -f apps/runmates-back/Dockerfile . -t runmates-back"
+      "command": "docker build --platform linux/amd64 -f apps/backend/runmates-back/Dockerfile . -t runmates-back"
     }
   }
 }
