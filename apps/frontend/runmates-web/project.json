@@ -3,18 +3,18 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "web",
-  "sourceRoot": "apps/runmates-web/src",
+  "sourceRoot": "apps/frontend/runmates-web/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/runmates-web",
-        "index": "apps/runmates-web/src/index.html",
-        "browser": "apps/runmates-web/src/main.ts",
+        "outputPath": "dist/apps/frontend/runmates-web",
+        "index": "apps/frontend/runmates-web/src/index.html",
+        "browser": "apps/frontend/runmates-web/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/runmates-web/tsconfig.app.json",
+        "tsConfig": "apps/frontend/runmates-web/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
@@ -23,14 +23,14 @@
           },
           {
             "glob": "**/*",
-            "input": "apps/runmates-web/public"
+            "input": "apps/frontend/runmates-web/public"
           }
         ],
-        "styles": ["libs/ui/src/styles/_global.scss","apps/runmates-web/src/styles.scss"],
+        "styles": ["libs/ui/src/styles/_global.scss","apps/frontend/runmates-web/src/styles.scss"],
         "scripts": [],
-        "server": "apps/runmates-web/src/main.server.ts",
+        "server": "apps/frontend/runmates-web/src/main.server.ts",
         "ssr": {
-          "entry": "apps/runmates-web/src/server.ts"
+          "entry": "apps/frontend/runmates-web/src/server.ts"
         },
         "outputMode": "server"
       },
@@ -83,7 +83,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/runmates-web/jest.config.ts"
+        "jestConfig": "apps/frontend/runmates-web/jest.config.ts"
       }
     },
     "serve-static": {
@@ -91,7 +91,7 @@
       "options": {
         "buildTarget": "runmates-web:build",
         "port": 4200,
-        "staticFilePath": "dist/apps/runmates-web/browser",
+        "staticFilePath": "dist/apps/frontend/runmates-web/browser",
         "spa": true
       }
     }
