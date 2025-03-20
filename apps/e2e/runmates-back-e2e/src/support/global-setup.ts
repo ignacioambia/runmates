@@ -1,7 +1,7 @@
 import { spawn } from 'child_process';
 import http from 'http';
 
-const backendUrl = "https://runmates-back-d11d62e14353.herokuapp.com/";
+const backendUrl = "http://localhost:3000";
 // Function to check if backend is ready
 const checkBackend = () =>
   new Promise<boolean>((resolve) => {
