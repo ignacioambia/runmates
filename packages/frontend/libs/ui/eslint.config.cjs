@@ -1,5 +1,5 @@
 const nx = require('@nx/eslint-plugin');
-const baseConfig = require('../../eslint.config.cjs');
+const baseConfig = require('../../../../eslint.config.cjs');
 
 module.exports = [
   ...baseConfig,
@@ -13,7 +13,7 @@ module.exports = [
         'error',
         {
           type: 'attribute',
-          prefix: 'ld',
+          prefix: 'rm',
           style: 'camelCase',
         },
       ],
@@ -21,7 +21,7 @@ module.exports = [
         'error',
         {
           type: 'element',
-          prefix: 'ld',
+          prefix: 'rm',
           style: 'kebab-case',
         },
       ],
