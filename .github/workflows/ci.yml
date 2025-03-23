@@ -22,4 +22,4 @@ jobs:
     - name: Install dependencies
       run: pnpm install
     - name: Run lint, test, and build
-      run: pnpx nx affected -t lint test build
+      run: pnpm nx affected -t lint test build
