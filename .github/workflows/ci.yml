@@ -29,5 +29,4 @@ jobs:
     - name: install playwright
       run: pnpx playwright install --with-deps
     - name: Run Tests
-      uses: nrwl/nx-set-shas@v4
       run: pnpm nx affected -t lint test build
