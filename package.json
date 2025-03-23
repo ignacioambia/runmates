@@ -17,6 +17,7 @@
     "@nx/jest": "20.3.2",
     "@nx/js": "20.3.2",
     "@nx/node": "20.3.2",
+    "@nx/playwright": "^20.6.2",
     "@nx/plugin": "^20.3.2",
     "@nx/web": "20.3.2",
     "@nx/webpack": "20.3.2",
