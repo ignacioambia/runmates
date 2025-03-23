@@ -24,9 +24,9 @@ import { trigger, transition, style, animate } from '@angular/animations';
 })
 export class RmDialog {
   public dialogParams = inject<RmDialogParams>(RM_DIALOG_PARAMS);
-  public close = output<'confirm' | 'cancel'>();
+  public dialogClose = output<'confirm' | 'cancel'>();
 
   public closeDialog() {
-    this.close.emit('confirm');
+    this.dialogClose.emit('confirm');
   }
 }
