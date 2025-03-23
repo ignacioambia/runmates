@@ -25,8 +25,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
     - name: Install dependencies
-      run: pnpm install
-    - name: install playwright
+      run: pnpm install --legacy-peer-deps
+    - name: Install Playwright
       run: pnpx playwright install --with-deps
-    - name: Run Tests
-      run: pnpm nx affected -t lint test build
+    - name: Set Nx SHAs
+      uses: nrwl/nx-set-shas@v4
+    - name: Run Nx Affected Tasks
+      run: pnpx nx affected -t lint test build e2e
