@@ -25,4 +25,6 @@ jobs:
     - name: Install dependencies
       run: pnpm install
     - name: Run lint, test, and build
-      run: pnpm nx affected -t lint test build
+      run: |
+        DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+        pnpm nx affected -t lint test build --base=$DEFAULT_BRANCH --head=HEAD
