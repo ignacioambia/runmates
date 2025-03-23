@@ -16,7 +16,7 @@ export class RmDialogService {
     const componentRef= this.viewContainerRef.createComponent(RmDialog, {
       injector: this.createInjector(RmDialogParams),
     });
-    componentRef.instance.close.subscribe(() => {
+    componentRef.instance.dialogClose.subscribe(() => {
       componentRef.destroy();
     });
   }
