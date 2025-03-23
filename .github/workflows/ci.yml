@@ -26,5 +26,7 @@ jobs:
         cache: 'pnpm'
     - name: Install dependencies
       run: pnpm install
-    - name: Build
+    - name: Run Tests
+      run: pnpx playwright install --with-deps
+      uses: nrwl/nx-set-shas@v4
       run: pnpm nx affected -t lint test build
