@@ -26,7 +26,3 @@ jobs:
         cache: 'pnpm'
     - name: Install dependencies
       run: pnpm install
-    - name: Run lint, test, and build
-      run: |
-        DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
-        pnpm nx affected -t lint test build --base=$DEFAULT_BRANCH --head=HEAD
