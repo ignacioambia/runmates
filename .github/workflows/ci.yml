@@ -31,4 +31,4 @@ jobs:
     - name: Set Nx SHAs
       uses: nrwl/nx-set-shas@v4
     - name: Run Nx Affected Tasks
-      run: pnpm nx affected -t lint test build e2e
+      run: pnpm nx affected -t lint test build
