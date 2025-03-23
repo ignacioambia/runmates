@@ -12,10 +12,6 @@ jobs:
       matrix:
         node-version: [22]
     steps:
-    - name: Clear GitHub Actions Cache
-      run: |
-        rm -rf ~/.pnpm-store ~/.cache/pnpm
-        pnpm store prune
     - uses: actions/checkout@v4
       with:
         ref: main
@@ -28,6 +24,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
+    - name: Clear GitHub Actions Cache
+      run: |
+        rm -rf ~/.pnpm-store ~/.cache/pnpm
+        pnpm store prune
     - name: Install dependencies
       run: pnpm install
     - name: Run lint, test, and build
