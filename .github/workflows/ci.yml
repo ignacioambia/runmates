@@ -12,7 +12,13 @@ jobs:
       matrix:
         node-version: [22]
     steps:
+    - name: Clear GitHub Actions Cache
+      run: |
+        rm -rf ~/.pnpm-store ~/.cache/pnpm
+        pnpm store prune
     - uses: actions/checkout@v4
+      with:
+        ref: main
     - name: Install pnpm
       uses: pnpm/action-setup@v4
       with:
@@ -26,5 +32,5 @@ jobs:
       run: pnpm install
     - name: Run lint, test, and build
       run: |
-        DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+        DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
         pnpm nx affected -t lint test build --base=$DEFAULT_BRANCH --head=HEAD
