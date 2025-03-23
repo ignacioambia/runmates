@@ -26,3 +26,5 @@ jobs:
         cache: 'pnpm'
     - name: Install dependencies
       run: pnpm install
+    - name: Build
+      run: pnpm nx affected -t lint test build
