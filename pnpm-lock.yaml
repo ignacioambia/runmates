@@ -292,6 +292,21 @@ importers:
         specifier: ^5.1.4
         version: 5.1.4(webpack-dev-server@5.2.0)(webpack@5.98.0)
 
+  apps/runmates-app:
+    dependencies:
+      '@capacitor/android':
+        specifier: ../../node_modules/@capacitor/android
+        version: link:../../node_modules/@capacitor/android
+      '@capacitor/ios':
+        specifier: ../../node_modules/@capacitor/ios
+        version: link:../../node_modules/@capacitor/ios
+    devDependencies:
+      '@capacitor/cli':
+        specifier: ^6.0.0
+        version: 6.2.0
+
+  apps/runmates-back: {}
+
 packages:
 
   '@adobe/css-tools@4.3.3':
