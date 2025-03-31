@@ -1,5 +1,5 @@
 import { Type } from '@angular/core';
-import { Test } from '@nestjs/testing';
+
 export type RmDialogParams = TextContentParams | ComponentContentParams;
 
 export type TextContentParams = BaseParams & {
