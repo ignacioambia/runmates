@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "build":"nest build -p ./tsconfig.app.json"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
