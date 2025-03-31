@@ -77,6 +77,9 @@ importers:
       ionicons:
         specifier: ^7.0.0
         version: 7.4.0
+      rxjs:
+        specifier: ^7.8.0
+        version: 7.8.2
       typeorm:
         specifier: ^0.3.21
         version: 0.3.21(pg@8.14.1)(reflect-metadata@0.2.2)(ts-node@10.9.1(@swc/core@1.5.29(@swc/helpers@0.5.15))(@types/node@18.16.9)(typescript@5.5.4))
@@ -240,6 +243,8 @@ importers:
       typescript-eslint:
         specifier: ^8.13.0
         version: 8.28.0(eslint@9.23.0(jiti@1.21.7))(typescript@5.5.4)
+
+  apps/landing-page: {}
 
   apps/runmates-app:
     dependencies:
