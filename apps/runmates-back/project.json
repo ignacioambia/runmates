@@ -8,7 +8,7 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx nest build -p apps/runmates-back/tsconfig.app.json",
+        "command": "pnpm exec nest build -p apps/runmates-back/tsconfig.app.json",
         "args": ["node-env=production"]
       },
       "configurations": {
