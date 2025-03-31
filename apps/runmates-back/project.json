@@ -8,7 +8,7 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "webpack-cli build",
+        "command": "nest build -p apps/runmates-back/tsconfig.app.json",
         "args": ["node-env=production"]
       },
       "configurations": {
