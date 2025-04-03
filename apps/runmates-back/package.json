@@ -2,7 +2,7 @@
   "name": "@runmates/runmates-back",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "jest"
   },
@@ -23,7 +23,6 @@
     "@types/node": "~18.16.9",
     "nx": "20.6.4",
     "prettier": "^2.6.2",
-    "tslib": "^2.3.0",
     "typescript": "~5.7.2"
   },
   "workspaces": [
@@ -45,6 +44,8 @@
     "class-validator": "^0.14.1",
     "pg": "^8.14.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.0"
+    "rxjs": "^7.8.0",
+    "webpack-cli": "^6.0.1",
+    "tslib": "^2.8.1"
   }
 }
