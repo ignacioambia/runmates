@@ -1,5 +1,11 @@
 {
-  "name": "runmates-app",
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "@angular/animations": "19.2.4",
     "@angular/common": "19.2.4",
@@ -9,17 +15,7 @@
     "@angular/platform-browser": "19.2.4",
     "@angular/platform-browser-dynamic": "19.2.4",
     "@angular/platform-server": "19.2.4",
-    "@angular/router": "19.2.4",
-    "@capacitor/android": "^6.0.0",
-    "@capacitor/app": "^6.0.0",
-    "@capacitor/core": "^6.0.0",
-    "@capacitor/haptics": "^6.0.0",
-    "@capacitor/ios": "^6.0.0",
-    "@capacitor/keyboard": "^6.0.0",
-    "@capacitor/status-bar": "^6.0.0",
-    "@ionic/angular": "^8.4.3",
-    "ionicons": "^7.0.0",
-    "@nxext/ionic-angular": "^20.0.5"
+    "@angular/router": "19.2.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "19.2.5",
@@ -28,7 +24,6 @@
     "@angular/cli": "~19.0.0",
     "@angular/compiler-cli": "19.2.4",
     "@angular/language-service": "19.2.4",
-    "@capacitor/cli": "^6.0.0",
     "@chromatic-com/storybook": "^3.2.6",
     "@nx/storybook": "20.7.0",
     "@storybook/addon-essentials": "^8.6.11",
@@ -40,5 +35,9 @@
     "@storybook/test-runner": "^0.22.0",
     "@storybook/theming": "^8.6.11",
     "storybook": "^8.6.11"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.6.5"
 }
