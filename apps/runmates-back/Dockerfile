@@ -14,11 +14,14 @@ WORKDIR /app
 RUN addgroup --system runmates-back && \
           adduser --system -G runmates-back runmates-back
 
+# Install pnpm globally
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
 COPY dist/apps/runmates-back runmates-back/
 RUN chown -R runmates-back:runmates-back .
 
 # You can remove this install step if you build with `--bundle` option.
 # The bundled output will include external dependencies.
-RUN npm --prefix runmates-back --omit=dev -f install
+RUN pnpm --prefix runmates-back install --prod
 
 CMD [ "node", "runmates-back" ]
