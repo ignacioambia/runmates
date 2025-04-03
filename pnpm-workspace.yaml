@@ -6,3 +6,4 @@ publicHoistPattern:
   - "@angular/ssr"
   - "@angular/platform-server"
   - "@angular/core"
+  - "@nestjs/core"
