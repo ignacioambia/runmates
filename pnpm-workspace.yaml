@@ -1,3 +1,5 @@
 packages:
   - "apps/*"
   - "libs/*"
+publicHoistPattern:
+  - "class-transformer"
