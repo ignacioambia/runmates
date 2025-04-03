@@ -1,6 +1,6 @@
 {
   "name": "runmates-app",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../apps/runmates-app/node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
   "sourceRoot": "apps/runmates-app/src",
@@ -19,7 +19,7 @@
         "assets": [
           {
             "glob": "**/*.svg",
-            "input": "node_modules/ionicons/dist/ionicons/svg",
+            "input": "apps/runmates-app/node_modules/ionicons/dist/ionicons/svg",
             "output": "./svg"
           }
         ],
@@ -27,17 +27,17 @@
           "libs/ui/src/styles/_global.scss",
           "apps/runmates-app/src/styles.scss",
           "apps/runmates-app/src/theme/variables.scss",
-          "node_modules/@ionic/angular/css/core.css",
-          "node_modules/@ionic/angular/css/normalize.css",
-          "node_modules/@ionic/angular/css/structure.css",
-          "node_modules/@ionic/angular/css/typography.css",
-          "node_modules/@ionic/angular/css/display.css",
-          "node_modules/@ionic/angular/css/padding.css",
-          "node_modules/@ionic/angular/css/float-elements.css",
-          "node_modules/@ionic/angular/css/text-alignment.css",
-          "node_modules/@ionic/angular/css/text-transformation.css",
-          "node_modules/@ionic/angular/css/flex-utils.css",
-          "node_modules/@ionic/angular/css/palettes/dark.system.css"
+          "apps/runmates-app/node_modules/@ionic/angular/css/core.css",
+          "apps/runmates-app/node_modules/@ionic/angular/css/normalize.css",
+          "apps/runmates-app/node_modules/@ionic/angular/css/structure.css",
+          "apps/runmates-app/node_modules/@ionic/angular/css/typography.css",
+          "apps/runmates-app/node_modules/@ionic/angular/css/display.css",
+          "apps/runmates-app/node_modules/@ionic/angular/css/padding.css",
+          "apps/runmates-app/node_modules/@ionic/angular/css/float-elements.css",
+          "apps/runmates-app/node_modules/@ionic/angular/css/text-alignment.css",
+          "apps/runmates-app/node_modules/@ionic/angular/css/text-transformation.css",
+          "apps/runmates-app/node_modules/@ionic/angular/css/flex-utils.css",
+          "apps/runmates-app/node_modules/@ionic/angular/css/palettes/dark.system.css"
         ],
         "scripts": []
       },
