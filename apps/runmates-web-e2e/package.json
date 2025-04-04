@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "devDependencies": {
     "@playwright/test": "^1.36.0",
     "@nx/playwright": "20.7.0",
