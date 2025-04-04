@@ -7,3 +7,4 @@ publicHoistPattern:
   - "@angular/platform-server"
   - "@angular/core"
   - "@nestjs/core"
+  - "zone.js"
