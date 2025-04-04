@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      axios:
-        specifier: ^1.6.0
-        version: 1.8.4
       express:
         specifier: 4.21.2
         version: 4.21.2
@@ -453,6 +450,12 @@ importers:
       typescript:
         specifier: ~5.7.2
         version: 5.7.3
+
+  apps/runmates-back-e2e:
+    dependencies:
+      axios:
+        specifier: ^1.6.0
+        version: 1.8.4
 
   apps/runmates-web:
     dependencies:
