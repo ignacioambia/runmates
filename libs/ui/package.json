@@ -15,7 +15,9 @@
     "@angular/platform-browser": "19.2.4",
     "@angular/platform-browser-dynamic": "19.2.4",
     "@angular/platform-server": "19.2.4",
-    "@angular/router": "19.2.4"
+    "@angular/router": "19.2.4",
+    "@fontsource/audiowide": "^5.1.1",
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "19.2.5",
@@ -34,7 +36,11 @@
     "@storybook/test": "^8.6.11",
     "@storybook/test-runner": "^0.22.0",
     "@storybook/theming": "^8.6.11",
-    "storybook": "^8.6.11"
+    "storybook": "^8.6.11",
+    "@nx/angular": "20.7.0",
+    "@schematics/angular": "19.2.5",
+    "angular-eslint": "19.3.0",
+    "jest-preset-angular": "~14.4.0"
   },
   "keywords": [],
   "author": "",

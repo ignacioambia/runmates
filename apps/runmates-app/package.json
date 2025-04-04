@@ -19,7 +19,9 @@
     "@capacitor/status-bar": "^6.0.0",
     "@ionic/angular": "^8.4.3",
     "ionicons": "^7.0.0",
-    "@nxext/ionic-angular": "^20.0.5"
+    "@nxext/ionic-angular": "^20.0.5",
+    "@fontsource/audiowide": "^5.1.1",
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "19.2.5",
@@ -39,6 +41,10 @@
     "@storybook/test": "^8.6.11",
     "@storybook/test-runner": "^0.22.0",
     "@storybook/theming": "^8.6.11",
-    "storybook": "^8.6.11"
+    "storybook": "^8.6.11",
+    "@nx/angular": "20.7.0",
+    "@schematics/angular": "19.2.5",
+    "angular-eslint": "19.3.0",
+    "jest-preset-angular": "~14.4.0"
   }
 }
