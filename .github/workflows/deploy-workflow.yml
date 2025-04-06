@@ -46,7 +46,7 @@ jobs:
       - name: Determine if runmates-back is affected
         id: affected
         run: |
-         if pnpm exec nx show projects --affected | grep -q "runmates-back"; then
+         if git diff origin/main..HEAD  --name-only -- apps/runmates-back | grep .; then
             echo "affected=true" >> $GITHUB_OUTPUT
           else
             echo "affected=false" >> $GITHUB_OUTPUT
