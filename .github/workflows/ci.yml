@@ -24,8 +24,6 @@ jobs:
         cache: 'pnpm'
     - name: Install dependencies
       run: pnpm install
-    - name: Install Playwright
-      run: pnpx playwright install --with-deps
     - name: Set Nx SHAs
       uses: nrwl/nx-set-shas@v4
     - name: Run Nx Affected Tasks
