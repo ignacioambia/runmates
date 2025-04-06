@@ -29,8 +29,7 @@ jobs:
       - name: Determine if runmates-back is affected
         id: affected
         run: |
-          pnpm exec nx print-affected --target=build --select=projects | grep -q runmates-back
-
+          git diff --name-only origin/main..HEAD -- apps/runmates-back | grep -q . || true
       - name: Log in to Fly.io
         if: steps.affected.outcome == 'success'
         run: flyctl auth docker
