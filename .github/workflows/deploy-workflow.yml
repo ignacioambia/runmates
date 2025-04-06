@@ -80,4 +80,6 @@ jobs:
 
       - name: Deploy to Fly.io
         if: steps.affected.outputs.affected == 'true'
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         run: flyctl deploy --image registry.fly.io/runmates-back:latest
