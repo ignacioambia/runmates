@@ -40,9 +40,7 @@ jobs:
         run: |
           curl -L https://fly.io/install.sh | sh
           echo "$HOME/.fly/bin" >> $GITHUB_PATH
-      - name: Debug affected output
-        run: |
-          echo "Affected: ${{ steps.affected.outputs.affected }}"
+
 
       - name: Determine if runmates-back is affected
         id: affected
@@ -52,6 +50,10 @@ jobs:
           else
             echo "affected=false" >> $GITHUB_OUTPUT
           fi
+
+      - name: Debug affected output
+        run: |
+          echo "Affected: ${{ steps.affected.outputs.affected }}"
 
       - name: Log in to Fly.io
         if: steps.affected.outputs.affected == 'true'
