@@ -44,7 +44,7 @@ jobs:
       - name: Determine if runmates-back is affected
         id: affected
         run: |
-          if npx nx show projects --affected --base=origin/main --head=HEAD | grep -q "runmates-back" ; then
+         if pnpm exec nx show projects --affected | grep -q "runmates-back"; then
             echo "affected=true" >> $GITHUB_OUTPUT
           else
             echo "affected=false" >> $GITHUB_OUTPUT
