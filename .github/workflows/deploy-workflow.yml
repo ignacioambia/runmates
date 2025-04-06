@@ -65,14 +65,14 @@ jobs:
       - name: Build Docker Image
         if: steps.affected.outputs.affected == 'true'
         run: npx nx docker-build runmates-back
-
-      - name: List Docker Images
-        if: steps.affected.outputs.affected == 'true'
-        run: docker images
         
       - name: Tag Docker Image
         if: steps.affected.outputs.affected == 'true'
         run: docker tag runmates-back registry.fly.io/runmates-back:latest
+
+      - name: List Docker Images
+        if: steps.affected.outputs.affected == 'true'
+        run: docker images
 
       - name: Push Docker Image to Fly.io
         if: steps.affected.outputs.affected == 'true'
