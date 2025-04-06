@@ -29,21 +29,26 @@ jobs:
       - name: Determine if runmates-back is affected
         id: affected
         run: |
-          git diff --name-only origin/main..HEAD -- apps/runmates-back | grep -q . || true
+          if git diff --name-only origin/main..HEAD -- apps/runmates-back | grep -q .; then
+            echo "::set-output name=affected::true"
+          else
+            echo "::set-output name=affected::false"
+          fi
+
       - name: Log in to Fly.io
-        if: steps.affected.outcome == 'success'
+        if: steps.affected.outputs.affected == 'true'
         run: flyctl auth docker
 
       - name: Build Docker Image
-        if: steps.affected.outcome == 'success'
+        if: steps.affected.outputs.affected == 'true'
         run: |
           npx nx docker-build runmates-back
           docker tag runmates-back registry.fly.io/runmates-back:latest
 
       - name: Push Docker Image to Fly.io
-        if: steps.affected.outcome == 'success'
+        if: steps.affected.outputs.affected == 'true'
         run: docker push registry.fly.io/runmates-back:latest
 
       - name: Deploy to Fly.io
-        if: steps.affected.outcome == 'success'
+        if: steps.affected.outputs.affected == 'true'
         run: flyctl deploy --image registry.fly.io/runmates-back:latest
