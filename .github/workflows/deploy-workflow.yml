@@ -26,6 +26,21 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Cache Flyctl
+        id: flyctl-cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.fly
+          key: flyctl-${{ runner.os }}-${{ github.sha }}
+          restore-keys: |
+            flyctl-${{ runner.os }}-
+
+      - name: Install Flyctl (if not cached)
+        if: steps.flyctl-cache.outputs.cache-hit != 'true'
+        run: |
+          curl -L https://fly.io/install.sh | sh
+          echo "$HOME/.fly/bin" >> $GITHUB_PATH
+
       - name: Determine if runmates-back is affected
         id: affected
         run: |
