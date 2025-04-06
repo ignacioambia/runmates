@@ -1,0 +1,78 @@
+name: deploy-workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+ 
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      # This enables task distribution via Nx Cloud
+      # Run this command as early as possible, before dependencies are installed
+      # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
+      # Connect your workspace by running "nx connect" and uncomment this line to enable task distribution
+      # - run: pnpm dlx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="build"
+
+      # Cache node_modules
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+      - uses: nrwl/nx-set-shas@v4
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Determine if runmates-back is affected
+        id: affected
+        run: |
+          pnpm exec nx print-affected --target=build --select=projects | grep -q runmates-back
+
+      - name: Log in to Fly.io
+        if: steps.affected.outcome == 'success'
+        run: flyctl auth docker
+
+      - name: Build Docker Image
+        if: steps.affected.outcome == 'success'
+        run: |
+          npx nx docker-build runmates-back
+          docker tag runmates-back registry.fly.io/runmates-back:latest
+
+      - name: Push Docker Image to Fly.io
+        if: steps.affected.outcome == 'success'
+        run: docker push registry.fly.io/runmates-back:latest
+
+      - name: Deploy to Fly.io
+        if: steps.affected.outcome == 'success'
+        run: flyctl deploy --image registry.fly.io/runmates-back:latest
