@@ -1,0 +1,85 @@
+name: deploy-workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+ 
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  runmates-back-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Cache Flyctl
+        id: flyctl-cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.fly
+          key: flyctl-${{ runner.os }}-${{ github.sha }}
+          restore-keys: |
+            flyctl-${{ runner.os }}-
+
+      - name: Install Flyctl (if not cached)
+        if: steps.flyctl-cache.outputs.cache-hit != 'true'
+        run: |
+          curl -L https://fly.io/install.sh | sh
+          echo "$HOME/.fly/bin" >> $GITHUB_PATH
+
+      - name: Determine if runmates-back is affected
+        id: affected
+        run: |
+         if git diff origin/main..HEAD  --name-only -- apps/runmates-back | grep .; then
+            echo "affected=true" >> $GITHUB_OUTPUT
+          else
+            echo "affected=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Debug affected output
+        run: |
+          echo "Affected: ${{ steps.affected.outputs.affected }}"
+
+      - name: Log in to Fly.io
+        if: steps.affected.outputs.affected == 'true'
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        run: flyctl auth docker
+
+      - name: Build Docker Image
+        if: steps.affected.outputs.affected == 'true'
+        run: npx nx docker-build runmates-back
+        
+      - name: Tag Docker Image
+        if: steps.affected.outputs.affected == 'true'
+        run: docker tag runmates-back registry.fly.io/runmates-back:latest
+
+      - name: List Docker Images
+        if: steps.affected.outputs.affected == 'true'
+        run: docker images
+
+      - name: Push Docker Image to Fly.io
+        if: steps.affected.outputs.affected == 'true'
+        run: docker push registry.fly.io/runmates-back:latest
+
+      - name: Deploy to Fly.io
+        if: steps.affected.outputs.affected == 'true'
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        run: flyctl deploy --image registry.fly.io/runmates-back:latest --config apps/runmates-back/fly.toml
