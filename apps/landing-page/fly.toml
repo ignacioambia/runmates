@@ -1,10 +1,12 @@
-# fly.toml app configuration file generated for runmates-back-icy-shadow-4369 on 2025-04-06T13:29:51-06:00
+# fly.toml app configuration file generated for rm-landing-page on 2025-04-06T20:02:52-06:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'runmates-back-icy-shadow-4369'
+app = 'rm-landing-page'
 primary_region = 'qro'
+
+[build]
 
 [http_service]
   internal_port = 3000
