@@ -149,7 +149,7 @@
     },
     "docker-build": {
       "dependsOn": ["build"],
-      "command": "docker build -f apps/landing-page/Dockerfile . -t landing-page"
+      "command": "docker build --platform linux/amd64 -f apps/landing-page/Dockerfile . -t landing-page"
     }
   }
 }
