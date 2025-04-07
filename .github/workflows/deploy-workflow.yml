@@ -4,24 +4,31 @@ on:
   push:
     branches:
       - main
- 
+
 permissions:
   actions: read
   contents: read
 
 jobs:
-  runmates-back-deploy:
+  deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app:
+          - name: runmates-back
+            path: apps/runmates-back
+            image: registry.fly.io/runmates-back:latest
+            config: apps/runmates-back/fly.toml
+          - name: landing-page
+            path: apps/landing-page
+            image: registry.fly.io/rm-landing-page:latest
+            config: apps/landing-page/fly.toml
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Print Parent Commit Hash
-        run: |
-          echo "Parent commit hash: $(git rev-parse HEAD^)"
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -44,11 +51,11 @@ jobs:
           curl -L https://fly.io/install.sh | sh
           echo "$HOME/.fly/bin" >> $GITHUB_PATH
 
-      - name: Determine if runmates-back is affected
+      - name: Determine if app is affected
         id: affected
         run: |
           PARENT_COMMIT=$(git rev-parse HEAD^)
-          if git diff $PARENT_COMMIT..HEAD  --name-only -- apps/runmates-back | grep .; then
+          if git diff $PARENT_COMMIT..HEAD --name-only -- ${{ matrix.app.path }} | grep .; then
             echo "affected=true" >> $GITHUB_OUTPUT
           else
             echo "affected=false" >> $GITHUB_OUTPUT
@@ -66,11 +73,11 @@ jobs:
 
       - name: Build Docker Image
         if: steps.affected.outputs.affected == 'true'
-        run: npx nx docker-build runmates-back
-        
+        run: npx nx docker-build ${{ matrix.app.name }}
+
       - name: Tag Docker Image
         if: steps.affected.outputs.affected == 'true'
-        run: docker tag runmates-back registry.fly.io/runmates-back:latest
+        run: docker tag ${{ matrix.app.name }} ${{ matrix.app.image }}
 
       - name: List Docker Images
         if: steps.affected.outputs.affected == 'true'
@@ -78,10 +85,10 @@ jobs:
 
       - name: Push Docker Image to Fly.io
         if: steps.affected.outputs.affected == 'true'
-        run: docker push registry.fly.io/runmates-back:latest
+        run: docker push ${{ matrix.app.image }}
 
       - name: Deploy to Fly.io
         if: steps.affected.outputs.affected == 'true'
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-        run: flyctl deploy --image registry.fly.io/runmates-back:latest --config apps/runmates-back/fly.toml
+        run: flyctl deploy --image ${{ matrix.app.image }} --config ${{ matrix.app.config }}
