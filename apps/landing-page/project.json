@@ -146,6 +146,10 @@
           "buildTarget": "landing-page:build-storybook:ci"
         }
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build --platform linux/amd64 -f apps/landing-page/Dockerfile . -t landing-page"
     }
   }
 }
