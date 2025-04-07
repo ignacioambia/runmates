@@ -47,7 +47,8 @@ jobs:
       - name: Determine if runmates-back is affected
         id: affected
         run: |
-         if git diff origin/main..HEAD  --name-only -- apps/runmates-back | grep .; then
+          PARENT_COMMIT=$(git rev-parse HEAD^)
+          if git diff $PARENT_COMMIT..HEAD  --name-only -- apps/runmates-back | grep .; then
             echo "affected=true" >> $GITHUB_OUTPUT
           else
             echo "affected=false" >> $GITHUB_OUTPUT
