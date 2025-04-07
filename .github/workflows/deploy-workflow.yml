@@ -19,6 +19,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Print Commit Hash
+        run: echo "commit_hash=${{ github.sha }}"
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
