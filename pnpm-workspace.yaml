@@ -3,8 +3,6 @@ packages:
   - "libs/*"
 publicHoistPattern:
   - "class-transformer"
-  - "@angular/ssr"
-  - "@angular/platform-server"
-  - "@angular/core"
+  - "@angular/*"
   - "@nestjs/core"
   - "zone.js"
