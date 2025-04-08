@@ -1,0 +1,4 @@
+<div class="chat-input-wrapper">
+  <input [(ngModel)]="message" [placeholder]="placeholder()" type="text" (enter)="sendMessage()">
+  <rm-send (click)="handleSendMessage()"/>
+</div>
