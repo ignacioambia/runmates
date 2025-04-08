@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, ElementRef, input, output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RmSend } from '@runmates/ui/icons';
 import { FormsModule } from '@angular/forms';
@@ -10,13 +10,23 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './chat-input.component.scss',
 })
 export class RmChatInput {
+
+  @ViewChild('chatInput') public chatInput!: ElementRef<HTMLTextAreaElement>;
   public placeholder = input<string>('Message...');
-  public sendMessage = output<string>();
+  public messageSent = output<string>();
   public message = '';
 
   public handleSendMessage() {
-    this.sendMessage.emit(this.message);
-    console.log('Message sent:', this.message);
-    this.message = '';
+    if (this.message.trim()) {
+      this.messageSent.emit(this.message.trim());
+      this.message = '';
+    }
+    this.adjustHeight(); // Adjust height after sending message
+  }
+
+  public adjustHeight(): void {
+    const chatInput = this.chatInput.nativeElement;
+    chatInput.style.height = '20px'; // Reset height to auto to handle text removal
+    chatInput.style.height = `${chatInput.scrollHeight}px`;
   }
 }

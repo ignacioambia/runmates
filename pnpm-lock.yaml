@@ -141,7 +141,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 19.2.5
-        version: 19.2.5(6d11e11d3c318a46774acbc420d54d99)
+        version: 19.2.5(66d41baab468cc3956005c1d22e7d7ae)
       '@angular-devkit/core':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -162,7 +162,7 @@ importers:
         version: 3.2.6(react@19.1.0)(storybook@8.6.11(prettier@2.8.8))
       '@nx/angular':
         specifier: 20.7.0
-        version: 20.7.0(bc673af9da76e2709a5c8c85c4428c29)
+        version: 20.7.0(a567747b1869598c26f0b85d6b319c38)
       '@nx/storybook':
         specifier: 20.7.0
         version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15))(@zkochan/js-yaml@0.0.7)(eslint@9.23.0(jiti@1.21.7))(nx@20.7.0(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))(typescript@5.7.3)
@@ -177,7 +177,7 @@ importers:
         version: 8.6.11(storybook@8.6.11(prettier@2.8.8))
       '@storybook/angular':
         specifier: ^8.6.11
-        version: 8.6.11(6b6e2c6b54b8fbd315bbc74bdd96fc75)
+        version: 8.6.11(8d784ecea42634c66b1c553c8539e473)
       '@storybook/core-server':
         specifier: ^8.6.11
         version: 8.6.11(storybook@8.6.11(prettier@2.8.8))
@@ -610,13 +610,16 @@ importers:
       '@fontsource/audiowide':
         specifier: ^5.1.1
         version: 5.2.5
+      '@storybook/addon-actions':
+        specifier: ^8.6.12
+        version: 8.6.12(storybook@8.6.11(prettier@2.8.8))
       zone.js:
         specifier: ~0.15.0
         version: 0.15.0
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 19.2.5
-        version: 19.2.5(66d41baab468cc3956005c1d22e7d7ae)
+        version: 19.2.5(6d11e11d3c318a46774acbc420d54d99)
       '@angular-devkit/core':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -637,7 +640,7 @@ importers:
         version: 3.2.6(react@19.1.0)(storybook@8.6.11(prettier@2.8.8))
       '@nx/angular':
         specifier: 20.7.0
-        version: 20.7.0(a567747b1869598c26f0b85d6b319c38)
+        version: 20.7.0(bc673af9da76e2709a5c8c85c4428c29)
       '@nx/storybook':
         specifier: 20.7.0
         version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15))(@zkochan/js-yaml@0.0.7)(eslint@9.23.0(jiti@1.21.7))(nx@20.7.0(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))(typescript@5.7.3)
@@ -652,7 +655,7 @@ importers:
         version: 8.6.11(storybook@8.6.11(prettier@2.8.8))
       '@storybook/angular':
         specifier: ^8.6.11
-        version: 8.6.11(8d784ecea42634c66b1c553c8539e473)
+        version: 8.6.11(6b6e2c6b54b8fbd315bbc74bdd96fc75)
       '@storybook/core-server':
         specifier: ^8.6.11
         version: 8.6.11(storybook@8.6.11(prettier@2.8.8))
@@ -3743,6 +3746,11 @@ packages:
     resolution: {integrity: sha512-7VORphqmxJf2J2a8tRgCAIeaMQ1JjYZwmwsrOwXBt77NjJbAC2qx9KecN1fsKKCyRVSk/wAICvOLStKM15+v2g==}
     peerDependencies:
       storybook: ^8.6.11
+
+  '@storybook/addon-actions@8.6.12':
+    resolution: {integrity: sha512-B5kfiRvi35oJ0NIo53CGH66H471A3XTzrfaa6SxXEJsgxxSeKScG5YeXcCvLiZfvANRQ7QDsmzPUgg0o3hdMXw==}
+    peerDependencies:
+      storybook: ^8.6.12
 
   '@storybook/addon-backgrounds@8.6.11':
     resolution: {integrity: sha512-1P6qqYOQKbidV0VzYOgc7upjHqIQaFogbqm/DqNyPnwlxTIuqtzkFLiZQxMmGSQekA9SB/7ZfGglFByQXgrIUA==}
@@ -14711,6 +14719,15 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.34.9
 
   '@storybook/addon-actions@8.6.11(storybook@8.6.11(prettier@2.8.8))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.8
+      dequal: 2.0.3
+      polished: 4.3.1
+      storybook: 8.6.11(prettier@2.8.8)
+      uuid: 9.0.1
+
+  '@storybook/addon-actions@8.6.12(storybook@8.6.11(prettier@2.8.8))':
     dependencies:
       '@storybook/global': 5.0.0
       '@types/uuid': 9.0.8

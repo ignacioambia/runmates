@@ -17,6 +17,7 @@
     "@angular/platform-server": "19.2.4",
     "@angular/router": "19.2.4",
     "@fontsource/audiowide": "^5.1.1",
+    "@storybook/addon-actions": "^8.6.12",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -27,7 +28,9 @@
     "@angular/compiler-cli": "19.2.4",
     "@angular/language-service": "19.2.4",
     "@chromatic-com/storybook": "^3.2.6",
+    "@nx/angular": "20.7.0",
     "@nx/storybook": "20.7.0",
+    "@schematics/angular": "19.2.5",
     "@storybook/addon-essentials": "^8.6.11",
     "@storybook/addon-interactions": "^8.6.11",
     "@storybook/angular": "^8.6.11",
@@ -36,11 +39,9 @@
     "@storybook/test": "^8.6.11",
     "@storybook/test-runner": "^0.22.0",
     "@storybook/theming": "^8.6.11",
-    "storybook": "^8.6.11",
-    "@nx/angular": "20.7.0",
-    "@schematics/angular": "19.2.5",
     "angular-eslint": "19.3.0",
-    "jest-preset-angular": "~14.4.0"
+    "jest-preset-angular": "~14.4.0",
+    "storybook": "^8.6.11"
   },
   "keywords": [],
   "author": "",
