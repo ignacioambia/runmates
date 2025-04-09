@@ -1,0 +1,11 @@
+<div class="chat-input-wrapper">
+  <textarea
+    #chatInput
+    [(ngModel)]="message"
+    [placeholder]="placeholder()"
+    type="text"
+    (keydown.enter)="handleSendMessage($event);"
+    (input)="adjustHeight()"
+  ></textarea>
+  <rm-send (click)="handleSendMessage()" />
+</div>
