@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { componentWrapperDecorator, type Meta, type StoryObj } from '@storybook/angular';
 import { RmChatInput } from './chat-input.component';
 import { fn } from '@storybook/test';
 import { withActions } from '@storybook/addon-actions/decorator';
@@ -6,11 +6,23 @@ import { withActions } from '@storybook/addon-actions/decorator';
 export default {
   component: RmChatInput,
   title: 'inputs/RmChatInput',
+  parameters: {
+   layout: 'fullscreen', 
+  },
   argTypes: {
     messageSent: {
       action: 'messageSent',
     },
   },
+  decorators:[
+    componentWrapperDecorator((story) => 
+      `<div style="display: flex; flex-direction: column; gap: 1rem; height: 100vh; box-sizing: border-box; padding: 0.5rem;">
+      <div style="flex: 1 0 auto;">
+      </div>
+      <div style="">${story}</div>
+    </div>`
+    ),
+  ]
 } as Meta<RmChatInput>;
 
 type Story = StoryObj<RmChatInput>;
