@@ -24,6 +24,17 @@ export const Filled: Story = {
   args: {
     message: 'Hello world',
   },
+  decorators: [
+    (storyFunc) => {  
+      const story = storyFunc();
+      setTimeout(() => {
+        const textarea = document.querySelector('textarea');
+        textarea?.dispatchEvent(new Event('input', { bubbles: true }));
+        textarea?.focus();
+      });
+      return story;
+    }
+  ]
 };
 
 export const ManyLines: Story = {
