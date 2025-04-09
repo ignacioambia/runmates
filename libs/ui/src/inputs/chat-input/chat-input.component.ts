@@ -16,17 +16,18 @@ export class RmChatInput {
   public messageSent = output<string>();
   public message = '';
 
-  public handleSendMessage() {
-    if (this.message.trim()) {
-      this.messageSent.emit(this.message.trim());
-      this.message = '';
-    }
-    this.adjustHeight(); // Adjust height after sending message
+  public handleSendMessage(event?: Event): void {
+    event?.preventDefault();
+    this.messageSent.emit(this.message.trim());
+    this.message = '';
+    this.adjustHeight();
   }
 
   public adjustHeight(): void {
-    const chatInput = this.chatInput.nativeElement;
-    chatInput.style.height = '20px'; // Reset height to auto to handle text removal
-    chatInput.style.height = `${chatInput.scrollHeight}px`;
+    requestAnimationFrame(() => {
+      const chatInput = this.chatInput.nativeElement;
+      chatInput.style.height = '20px';
+      chatInput.style.height = `${chatInput.scrollHeight}px`;
+    });
   }
 }
