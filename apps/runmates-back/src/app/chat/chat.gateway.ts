@@ -8,7 +8,7 @@ import {
 } from '@nestjs/websockets';
 import { Socket } from 'socket.io';
 
-@WebSocketGateway({ cors: true }) // Enable CORS for cross-origin requests
+@WebSocketGateway({ namespace: '/chat', cors: true }) // Enable CORS for cross-origin requests
 export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   
   // Triggered when a client connects
