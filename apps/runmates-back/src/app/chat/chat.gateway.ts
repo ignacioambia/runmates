@@ -27,6 +27,6 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     @MessageBody() message: { sender: string; content: string },
     @ConnectedSocket() client: Socket,
   ) {
-    return { event: 'message', data: message}; // Respond to the sender
+    return { event: 'message', data: 'Received msg is: ' + message}; // Respond to the sender
   }
 }
