@@ -4,7 +4,10 @@ import { RmChatContainer } from './chat-container.component';
 export default {
   component: RmChatContainer,
   title: 'chat/RmChatContainer',
-} as Meta<RmChatContainer>;
+  parameters: {
+    layout: 'fullscreen', 
+   }
+  } as Meta<RmChatContainer>;
 
 type Story = StoryObj<RmChatContainer>;
 

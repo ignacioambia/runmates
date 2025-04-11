@@ -1,4 +1,10 @@
-<div>
- hola mundo!
- <button (click)="sendMessage('Hello world!')">Click me!</button>
+<div class="chat-container">
+  <div class="messages">
+    @for (message of messages; let i = $index; track i) {
+    <rm-message [type]="message.type" avatar="https://picsum.photos/200">{{
+      message.content
+    }}</rm-message>
+    }
+  </div>
+  <rm-chat-input (messageSent)="sendMessage($event)" />
 </div>
