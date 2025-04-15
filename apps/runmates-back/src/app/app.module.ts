@@ -7,6 +7,7 @@ import { TrainingPlanModule } from './training-plan/training-plan.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TrainingPlanTemplatesModule } from './training-plan-templates/training-plan-templates.module';
 import { ChatModule } from './chat/chat.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { ChatModule } from './chat/chat.module';
     TrainingPlanModule,
     TrainingPlanTemplatesModule,
     ChatModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
