@@ -1,7 +1,14 @@
 <div class="chat-container">
+  <div class="chat-header">
+    <img class="avatar" [src]="userInfo()?.avatar" alt="Mateo profile picture" />
+    <div>
+      <div class="user-name">{{ userInfo()?.name }}</div>
+      <div class="title">{{ userInfo()?.title }}</div>
+    </div>
+  </div>
   <div class="messages">
     @for (message of messages; let i = $index; track i) {
-    <rm-message [type]="message.type" avatar="https://picsum.photos/200">{{
+    <rm-message [type]="message.type" avatar="mateo-profile-pic.png">{{
       message.content
     }}</rm-message>
     }

@@ -12,5 +12,21 @@ export default {
 type Story = StoryObj<RmChatContainer>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    userInfo: {
+      name: 'Mateo',
+      title: 'Entrenador personal',
+      avatar: 'mateo-profile-pic.png',
+    },
+    messages: [
+      {
+        type: 'received',
+        content: 'Hello, how can I help you?',
+      },
+      {
+        type: 'sent',
+        content: 'I have a question about my training plan.',
+      },
+    ],
+  },
 };
