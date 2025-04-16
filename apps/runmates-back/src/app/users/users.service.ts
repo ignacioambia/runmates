@@ -5,7 +5,7 @@ import { UserEntity } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { AuthService } from '../auth/auth.service';
-import { RegisterUserResponse } from '@runmates/types/users';
+import { RegisterUserResponse, User } from '@runmates/types/users';
 
 @Injectable()
 export class UsersService {
@@ -23,7 +23,13 @@ export class UsersService {
     return { user: savedUser, token};
   }
 
-  updateUser(id: string, updateUserDto: UpdateUserDto) {
-    return this.userRepository.update(id, updateUserDto);
+  async updateUser(id: number, updateUserDto: UpdateUserDto): Promise<User> {
+    await this.userRepository.update(id, updateUserDto);
+    const updatedUser = await this.userRepository.findOneBy({ id });
+    if (!updatedUser) {
+      throw new Error('User not found'); // Handle the case where the user no longer exists
+    }
+    const { id: userId, ...user} = updatedUser;
+    return user;
   }
 }

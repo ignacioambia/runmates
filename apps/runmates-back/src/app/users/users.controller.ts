@@ -17,8 +17,6 @@ export class UsersController {
 
   @Patch('me')
   updateUser(@Body() updateUserDto: UpdateUserDto, @TokenPayload('id') userId: number) {
-    // console.log('updateUser', updateUserDto, id);
-    return {updateUserDto, userId};
-    // return this.usersService.updateUser(id, updateUserDto);
+    return this.usersService.updateUser(userId, updateUserDto);
   }
 }
