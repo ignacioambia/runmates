@@ -4,16 +4,26 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { AuthService } from '../auth/auth.service';
+import { RegisterUserResponse } from '@runmates/types/users';
 
 @Injectable()
 export class UsersService {
 
   constructor(
-    @InjectRepository(User) private readonly userRepository: Repository<User>
+    @InjectRepository(User) private readonly userRepository: Repository<User>,
+    private readonly authService: AuthService,
   ) {}
-  registerUser(createUserDto: CreateUserDto) {
+
+  async registerUser(createUserDto: CreateUserDto): Promise<RegisterUserResponse> {
     const user = this.userRepository.create(createUserDto);
-    console.log('Everythin ok until', user)
-    return this.userRepository.save(user);
+    const savedUser = await this.userRepository.save(user);
+
+    const token = this.authService.generateToken({ id: savedUser.id, email: savedUser.email });
+    return { user: savedUser, token};
+  }
+
+  updateUser(id: string, updateUserDto: UpdateUserDto) {
+    return this.userRepository.update(id, updateUserDto);
   }
 }
