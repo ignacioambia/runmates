@@ -8,6 +8,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TrainingPlanTemplatesModule } from './training-plan-templates/training-plan-templates.module';
 import { ChatModule } from './chat/chat.module';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
+import { AuthGuard } from './auth/auth.guard';
 
 @Module({
   imports: [
@@ -22,7 +25,7 @@ import { UsersModule } from './users/users.module';
         password: configService.get<string>('POSTGRES_PASSWORD'),
         database: configService.get<string>('POSTGRES_DB'),
         autoLoadEntities: true,
-        synchronize: false, // Set to false in production
+        synchronize: true, // Set to false in production
       }),
       inject: [ConfigService],
     }),
@@ -31,8 +34,15 @@ import { UsersModule } from './users/users.module';
     TrainingPlanTemplatesModule,
     ChatModule,
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
+  ],
 })
 export class AppModule {}
