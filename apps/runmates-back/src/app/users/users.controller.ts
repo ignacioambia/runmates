@@ -3,6 +3,7 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Public } from '../common/decorators/public.decorator';
+import { TokenPayload } from '../common/decorators/token-payload.decorator';
 
 @Controller('users')
 export class UsersController {
@@ -15,9 +16,9 @@ export class UsersController {
   }
 
   @Patch('me')
-  updateUser(@Body() updateUserDto: UpdateUserDto, @Req() request: Request) {
+  updateUser(@Body() updateUserDto: UpdateUserDto, @TokenPayload('id') userId: number) {
     // console.log('updateUser', updateUserDto, id);
-    return {updateUserDto, id: request['id']};
+    return {updateUserDto, userId};
     // return this.usersService.updateUser(id, updateUserDto);
   }
 }
