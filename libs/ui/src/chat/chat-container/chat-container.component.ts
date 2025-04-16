@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChatService } from '../chat.service';
 import { RmChatInput } from "../../inputs/chat-input/chat-input.component";
@@ -10,6 +10,12 @@ export interface ChatMessage {
   content: string;
 }
 
+export interface ChatUserInfo {
+  name: string;
+  title: string;
+  avatar: string;
+}
+
 //TODO: Add an animation when a new message is received
 @Component({
   selector: 'rm-chat-container',
@@ -18,6 +24,8 @@ export interface ChatMessage {
   styleUrl: './chat-container.component.scss',
 })
 export class RmChatContainer {
+
+  public userInfo = input<ChatUserInfo>();
 
   public messages: ChatMessage[] = [{
     type: 'received',
