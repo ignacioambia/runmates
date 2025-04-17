@@ -6,7 +6,7 @@ import { LeadModule } from './lead/lead.module';
 import { TrainingPlanModule } from './training-plan/training-plan.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TrainingPlanTemplatesModule } from './training-plan-templates/training-plan-templates.module';
-import { ChatModule } from './chats/chats.module';
+import { ChatsModule } from './chats/chats.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
@@ -32,7 +32,7 @@ import { AuthGuard } from './auth/auth.guard';
     LeadModule,
     TrainingPlanModule,
     TrainingPlanTemplatesModule,
-    ChatModule,
+    ChatsModule,
     UsersModule,
     AuthModule,
   ],
