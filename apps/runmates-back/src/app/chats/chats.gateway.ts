@@ -9,7 +9,7 @@ import {
 import { Socket } from 'socket.io';
 
 @WebSocketGateway({ namespace: '/chat', cors: true }) // Enable CORS for cross-origin requests
-export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
+export class ChatsGateway implements OnGatewayConnection, OnGatewayDisconnect {
   
   // Triggered when a client connects
   handleConnection(@ConnectedSocket() client: Socket) {
