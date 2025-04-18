@@ -4,5 +4,5 @@ packages:
 publicHoistPattern:
   - "class-transformer"
   - "@angular/*"
-  - "@nestjs/core"
+  - "@nestjs/*"
   - "zone.js"
