@@ -20,11 +20,11 @@ export const Primary: Story = {
     },
     messages: [
       {
-        type: 'received',
+        type: 'assistant',
         content: 'Hello, how can I help you?',
       },
       {
-        type: 'sent',
+        type: 'user',
         content: 'I have a question about my training plan.',
       },
     ],
