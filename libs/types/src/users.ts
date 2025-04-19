@@ -5,4 +5,4 @@ export interface User {
   motivation: string;
 }
 
-export type RegisterUserResponse = { user: User,  token: string }; 
+export type RegisterUserResponse = { userId: number,  token: string }; 
