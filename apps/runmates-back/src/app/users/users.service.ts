@@ -20,7 +20,7 @@ export class UsersService {
     const savedUser = await this.userRepository.save(user);
 
     const token = this.authService.generateToken({ id: savedUser.id, email: savedUser.email });
-    return { user: savedUser, token};
+    return { userId: savedUser.id, token};
   }
 
   async updateUser(id: number, updateUserDto: UpdateUserDto): Promise<User> {

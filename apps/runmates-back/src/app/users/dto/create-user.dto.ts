@@ -8,6 +8,7 @@ export class CreateUserDto implements Exact<CreateUserDto, User>{
  name: string;
 
  @IsEmail()
+ @IsOptional()
  email: string;
 
  @IsNumber()
