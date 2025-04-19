@@ -6,3 +6,5 @@ publicHoistPattern:
   - "@angular/*"
   - "@nestjs/*"
   - "zone.js"
+  - "@ionic/*"
+  - "socket.io-client"
