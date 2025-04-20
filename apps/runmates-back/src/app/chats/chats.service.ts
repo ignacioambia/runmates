@@ -13,6 +13,7 @@ import {
 
 @Injectable()
 export class ChatsService {
+  //TODO: This object must be deleted
   private actionPrompts: Record<ChatAction, string> = {
     signup:
       'A new user just signed up and we need to get their basic info. Welcome the new user and start by requesting their name.',
@@ -23,6 +24,34 @@ export class ChatsService {
   private aiClient: Mistral;
   public con: ContentChunk;
 
+  public tools: Tool[] = [
+    {
+      type: 'function',
+      function: {
+        name: 'get_user_basic_info',
+        description: 'Get the basic info of a new user',
+        parameters: {
+          type: 'object',
+          properties: {
+            name: {
+              type: 'string',
+              description: 'The name of the user, e.g. John Doe',
+            },
+            motivation: {
+              type: 'string',
+              description:
+                'What motivates you to run?, e.g. health, competition, socializing, etc.',
+            },
+            frequency: {
+              type: 'string',
+              description: 'How often do you run?, daily, weekly, etc.',
+            },
+          },
+        },
+      },
+    },
+  ];
+
   constructor(
     @InjectRepository(ChatEntity)
     private readonly chatRepository: Repository<ChatEntity>,
@@ -31,11 +60,16 @@ export class ChatsService {
     this.aiClient = new Mistral({
       apiKey: this.configService.get('MISTRAL_API_KEY'),
     });
-    console.log('API key is:', this.configService.get('MISTRAL_API_KEY'));
   }
-  processMessage(message: any): any {
+
+  async processMessage(messages: any): Promise<any> {
+    const result = await this.aiClient.agents.complete({
+      agentId: 'ag:d524bc51:20250313:untitled-agent:ba3114ed',
+      tools: this.tools,
+      messages: messages,
+    });
     // Process the message and return a response
-    return { ...message, timestamp: new Date() };
+    return result.choices[0].message;
   }
 
   async createChat(userId: number): Promise<any> {
@@ -43,39 +77,12 @@ export class ChatsService {
     return this.chatRepository.save({ userId });
   }
 
-  async startConversation(action: ChatAction): Promise<Messages[]> {
-    const tools: Tool[] = [
-      {
-        type: 'function',
-        function: {
-          name: 'get_user_basic_info',
-          description: 'Get the basic info of a new user',
-          parameters: {
-            type: 'object',
-            properties: {
-              name: {
-                type: 'string',
-                description: 'The name of the user, e.g. John Doe',
-              },
-              motivation: {
-                type: 'string',
-                description:
-                  'What motivates you to run?, e.g. health, competition, socializing, etc.',
-              },
-              frequency: {
-                type: 'string',
-                description: 'How often do you run?, daily, weekly, etc.',
-              },
-            },
-          },
-        },
-      },
-    ];
-
+  async startSignupConversation(): Promise<Messages[]> {
     const messages: Messages[] = [
       {
         role: 'system',
-        content: 'You are a friendly assistant. Always call the get_user_basic_info tool to collect user details. Always start by asking the user name',
+        content:
+          'You are a friendly assistant. Always call the get_user_basic_info tool to collect user details. Always start by asking the user name',
       },
       {
         role: 'user',
@@ -85,11 +92,9 @@ export class ChatsService {
     ];
     const result = await this.aiClient.agents.complete({
       agentId: 'ag:d524bc51:20250313:untitled-agent:ba3114ed',
-      tools: tools,
+      tools: this.tools,
       messages: messages,
     });
-
-    console.log('Result is: ', result.choices[0].message);
 
     messages.push({ role: 'assistant', ...result.choices[0].message });
     return messages;

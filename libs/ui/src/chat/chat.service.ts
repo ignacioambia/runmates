@@ -17,19 +17,31 @@ export class ChatService {
     this.socket = io('http://localhost:3000/chat');
   }
 
+  registerUser() {
+    this.socket.emit('register');
+  }
 
-  sendMessage(message: Partial<ChatMessage>) {
+
+  sendMessage(messages: any[]) {
     const defaultMessage: ChatMessage = { 
       type: 'user',
       content: '',
     }
-    this.socket.emit('message', message);
+    this.socket.emit('message', messages);
   }
   
   receiveMessage() {
     return new Observable<any>((observer) => {
       this.socket.on('message', (message) => {
         observer.next(message);
+      });
+    });
+  }
+
+  onSignup() { 
+    return new Observable<any>((observer) => {
+      this.socket.on('signup', (messages) => {
+        observer.next(messages);
       });
     });
   }
