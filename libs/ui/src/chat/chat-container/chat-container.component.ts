@@ -25,16 +25,22 @@ export class RmChatContainer {
 
   public messages: any[] = [];
   constructor(private chatService: ChatService) {
+    //TODO: THIS MUST BE MOVED outSIDE THE CONSTRUCTOR
+    this.chatService.onSignup().subscribe((messages) => {
+      this.messages = messages;
+    });
+
     this.chatService.receiveMessage().subscribe((message) => {
-      this.messages = message;
+
+      this.messages.push(message);
     });
   }
 
   public sendMessage(message: string) {
     this.messages.push({
-      type: 'user',
+      role: 'user',
       content: message,
     });
-    this.chatService.sendMessage({type: 'user', content: message});
+    this.chatService.sendMessage(this.messages);
   }
 }

@@ -37,7 +37,7 @@ export class AppSignup {
       .post<RegisterUserResponse>('/users', null)
       .subscribe((response) => {
         // Storage.get('token').then((token) => {
-        this.chatService.sendMessage({ action: 'signup' });
+        this.chatService.registerUser();
       });
   }
 }
