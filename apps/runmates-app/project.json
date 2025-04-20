@@ -21,6 +21,10 @@
             "glob": "**/*.svg",
             "input": "apps/runmates-app/node_modules/ionicons/dist/ionicons/svg",
             "output": "./svg"
+          },
+          {
+            "glob": "**/*",
+            "input": "assets"
           }
         ],
         "styles": [

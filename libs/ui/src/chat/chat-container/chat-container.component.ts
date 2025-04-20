@@ -3,12 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ChatService } from '../chat.service';
 import { RmChatInput } from "../../inputs/chat-input/chat-input.component";
 import { RmMessage } from '@runmates/ui/components';
-
-//TODO: Move to a separate file
-export interface ChatMessage {
-  type: 'sent' | 'received';
-  content: string;
-}
+import { ChatMessage } from '@runmates/types/chats';
 
 export interface ChatUserInfo {
   name: string;
@@ -25,26 +20,21 @@ export interface ChatUserInfo {
 })
 export class RmChatContainer {
 
+  public chatId = input<number>();
   public userInfo = input<ChatUserInfo>();
 
-  public messages: ChatMessage[] = [{
-    type: 'received',
-    content: 'Hello, how can I help you?',
-  }];
+  public messages: any[] = [];
   constructor(private chatService: ChatService) {
     this.chatService.receiveMessage().subscribe((message) => {
-      this.messages.push({
-        type: 'received',
-        content: message,
-      });
+      this.messages = message;
     });
   }
 
   public sendMessage(message: string) {
     this.messages.push({
-      type: 'sent',
+      type: 'user',
       content: message,
     });
-    this.chatService.sendMessage(message);
+    this.chatService.sendMessage({type: 'user', content: message});
   }
 }

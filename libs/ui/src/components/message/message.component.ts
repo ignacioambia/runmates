@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
 })
 export class RmMessage {
   public avatar = input<string>();
-  public type = input<'sent' | 'received'>();
+  public role = input<'user' | 'assistant'>();
 }

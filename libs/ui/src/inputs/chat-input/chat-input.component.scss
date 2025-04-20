@@ -26,6 +26,8 @@
     font-family: 'Avenir Book', sans-serif;
     height: 20px;
     resize: none;
+    // border: 1px solid red;
+    overflow: hidden;
 
     &::placeholder {
       display: flex;
