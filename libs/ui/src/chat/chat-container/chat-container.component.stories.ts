@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { RmChatContainer } from './chat-container.component';
+import { primaryMessagesMock, multipleMessagesMock } from '../@mocks/chat-container-messages.mock';
 
 export default {
   component: RmChatContainer,
   title: 'chat/RmChatContainer',
   parameters: {
-    layout: 'fullscreen', 
+    layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'mobile2',
+    } 
    }
   } as Meta<RmChatContainer>;
 
@@ -18,15 +22,17 @@ export const Primary: Story = {
       title: 'Entrenador personal',
       avatar: 'mateo-profile-pic.png',
     },
-    messages: [
-      {
-        type: 'assistant',
-        content: 'Hello, how can I help you?',
-      },
-      {
-        type: 'user',
-        content: 'I have a question about my training plan.',
-      },
-    ],
+    messages: primaryMessagesMock,
   },
 };
+
+export const MultipleMessages: Story = {
+  args: {
+    userInfo: {
+      name: 'Mateo',
+      title: 'Entrenador personal',
+      avatar: 'mateo-profile-pic.png',
+    },
+    messages: multipleMessagesMock,
+  }, 
+}; 

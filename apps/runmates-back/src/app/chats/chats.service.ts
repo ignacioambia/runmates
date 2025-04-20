@@ -82,7 +82,7 @@ export class ChatsService {
       {
         role: 'system',
         content:
-          'You are a friendly assistant. Always call the get_user_basic_info tool to collect user details. Always start by asking the user name',
+          'You are a friendly assistant. Collect the 3 basic questions of the user and then call the function get_user_basic_info with the user data. You can ask follow up questions to get more info.',
       },
       {
         role: 'user',
