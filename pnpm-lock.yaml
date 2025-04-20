@@ -132,7 +132,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 19.2.5
-        version: 19.2.5(967c523e7d6db3b172faf471d03ec742)
+        version: 19.2.5(edaec42804b8b7c6a96739430ec856e5)
       '@angular-devkit/core':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -153,10 +153,10 @@ importers:
         version: 3.2.6(react@19.1.0)(storybook@8.6.12(prettier@2.8.8))
       '@nx/angular':
         specifier: 20.7.0
-        version: 20.7.0(2d40fc32580903778463cef29fc69626)
+        version: 20.7.0(c671119a839682afcb09d7c43f79d81d)
       '@nx/storybook':
         specifier: 20.7.0
-        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.8.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
+        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.7.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
       '@schematics/angular':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -168,7 +168,7 @@ importers:
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
       '@storybook/angular':
         specifier: ^8.6.11
-        version: 8.6.12(3e493373df5d03d283ce5a0840585abe)
+        version: 8.6.12(2a0abf20b92228d565b62523e813477a)
       '@storybook/core-server':
         specifier: ^8.6.11
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
@@ -322,9 +322,6 @@ importers:
         version: 8.6.12(@types/react@18.3.20)(storybook@8.6.12(prettier@2.8.8))
       '@storybook/addon-interactions':
         specifier: ^8.6.11
-        version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
-      '@storybook/addon-viewport':
-        specifier: ^8.6.12
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
       '@storybook/angular':
         specifier: ^8.6.11
@@ -652,7 +649,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 19.2.5
-        version: 19.2.5(edaec42804b8b7c6a96739430ec856e5)
+        version: 19.2.5(967c523e7d6db3b172faf471d03ec742)
       '@angular-devkit/core':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -673,10 +670,10 @@ importers:
         version: 3.2.6(react@19.1.0)(storybook@8.6.12(prettier@2.8.8))
       '@nx/angular':
         specifier: 20.7.0
-        version: 20.7.0(c671119a839682afcb09d7c43f79d81d)
+        version: 20.7.0(2d40fc32580903778463cef29fc69626)
       '@nx/storybook':
         specifier: 20.7.0
-        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.7.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
+        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.8.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
       '@schematics/angular':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -691,7 +688,7 @@ importers:
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
       '@storybook/angular':
         specifier: ^8.6.11
-        version: 8.6.12(2a0abf20b92228d565b62523e813477a)
+        version: 8.6.12(3e493373df5d03d283ce5a0840585abe)
       '@storybook/core-server':
         specifier: ^8.6.11
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
