@@ -16,7 +16,7 @@ import { RmDialogService } from '@runmates/ui';
 export class AppSignup {
   public mateoUserInfo: ChatUserInfo = {
     name: 'Mateo',
-    title: 'Entrenador personal',
+    title: 'Personal trainer',
     avatar: 'mateo-profile-pic.png',
   };
 
