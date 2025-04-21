@@ -1,17 +1,22 @@
 <div class="chat-container">
-  <div class="chat-header">
+  <div class="chat-header ion-safe-area-top">
     <img class="avatar" [src]="userInfo()?.avatar" alt="Mateo profile picture" />
     <div>
       <div class="user-name">{{ userInfo()?.name }}</div>
       <div class="title">{{ userInfo()?.title }}</div>
     </div>
   </div>
-  <div class="messages">
-    @for (message of messages; let i = $index; track i) {
-    <rm-message [role]="message.role" avatar="mateo-profile-pic.png">{{
-      message.content
-    }}</rm-message>
-    }
-  </div>
-  <rm-chat-input (messageSent)="sendMessage($event)" />
+  <ion-content>
+    <div class="messages">
+      @for (message of displayedMessages(); let i = $index; track i) {
+      <rm-message [role]="message.role" avatar="mateo-profile-pic.png">{{
+        message.content
+      }}</rm-message>
+      }
+    </div>
+  </ion-content>
+
+
+  <!-- TODO: It might be better to have a padding with background fro a better presentation-->
+  <rm-chat-input class="ion-safe-area-bottom" (messageSent)="sendMessage($event)" />
 </div>
