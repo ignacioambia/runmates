@@ -82,12 +82,12 @@ export class ChatsService {
       {
         role: 'system',
         content:
-          'You are a friendly assistant. Collect the 3 basic questions of the user and then call the function get_user_basic_info with the user data. You can ask follow up questions to get more info.',
+          'You are a friendly assistant. Collect the 3 basic questions of the user and then call the function get_user_basic_info with the user data. You can ask follow up questions to get more info. Once you collect the information and the tooCall is triggered, send the user a message that you are working on his plan',
       },
       {
         role: 'user',
         content:
-          "Hi! I'm new user, can you explain me who yo are? Im open to you asking me questions. Get my basic info. Start by asking my name.",
+          "Hi! I'm new user, can you explain me who yo are? Im open to you asking me questions. Get my basic info. Always show interest/ show feedback about what the user just mentioned. Start by saying Hi, presenting yourself, what you do and asking my name.",
       },
     ];
     const result = await this.aiClient.agents.complete({
