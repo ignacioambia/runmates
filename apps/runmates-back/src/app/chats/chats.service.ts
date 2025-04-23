@@ -46,6 +46,10 @@ export class ChatsService {
               type: 'string',
               description: 'How often do you run?, daily, weekly, etc.',
             },
+            goal: {
+              type: 'number',
+              description: 'What is your distance goal?, e.g. 5k, 10k, half marathon, etc.',
+            }
           },
         },
       },
@@ -68,8 +72,13 @@ export class ChatsService {
       tools: this.tools,
       messages: messages,
     });
+    const { message } = result.choices[0];
+    if (message.toolCalls?.find((toolCall) => toolCall.function.name === 'get_user_basic_info')) {
+      console.log('A tool call will be made', result.choices[0]);
+      return;
+    }
     // Process the message and return a response
-    return result.choices[0].message;
+    return message;
   }
 
   async createChat(userId: number): Promise<any> {
@@ -82,12 +91,12 @@ export class ChatsService {
       {
         role: 'system',
         content:
-          'You are a friendly assistant. Collect the 3 basic questions of the user and then call the function get_user_basic_info with the user data. You can ask follow up questions to get more info. Once you collect the information and the tooCall is triggered, send the user a message that you are working on his plan',
+          'You are a friendly assistant. Collect the 4 basic questions of the user and always call the function get_user_basic_info with the user data. Always send the user feedback on the received messages. Start by saying Hi, presenting yourself, what you do and asking my name. Be brief on your introduction Ask one question at a time, provide examples of possible answers and wait for the user answer.',
       },
       {
         role: 'user',
         content:
-          "Hi! I'm new user, can you explain me who yo are? Im open to you asking me questions. Get my basic info. Always show interest/ show feedback about what the user just mentioned. Start by saying Hi, presenting yourself, what you do and asking my name.",
+          "Hi! I'm new user, can you explain me who yo are? Im open to you asking me questions.",
       },
     ];
     const result = await this.aiClient.agents.complete({

@@ -38,6 +38,6 @@ export class ChatsGateway implements OnGatewayConnection, OnGatewayDisconnect {
     @MessageBody() messages: any[],
   ) {
     const resultMessage = await this.chatService.processMessage(messages);
-    return { event: 'message', data: resultMessage }; // Respond to the sender
+    return resultMessage && { event: 'message', data: resultMessage }; // Respond to the sender
   }
 }

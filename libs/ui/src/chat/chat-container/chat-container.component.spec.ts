@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RmChatContainer } from './chat-container.component';
+import { IonicModule } from '@ionic/angular';
 
 describe('RmChatContainer', () => {
   let component: RmChatContainer;
@@ -7,7 +8,7 @@ describe('RmChatContainer', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RmChatContainer],
+      imports: [RmChatContainer, IonicModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RmChatContainer);
