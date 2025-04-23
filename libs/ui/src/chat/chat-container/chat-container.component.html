@@ -6,7 +6,6 @@
       <div class="title">{{ userInfo()?.title }}</div>
     </div>
   </div>
-  <ion-content>
     <div class="messages">
       @for (message of displayedMessages(); let i = $index; track i) {
       <rm-message [role]="message.role" avatar="mateo-profile-pic.png">{{
@@ -14,8 +13,6 @@
       }}</rm-message>
       }
     </div>
-  </ion-content>
-
 
   <!-- TODO: It might be better to have a padding with background fro a better presentation-->
   <rm-chat-input class="ion-safe-area-bottom" (messageSent)="sendMessage($event)" />

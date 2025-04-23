@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ChatService } from '../chat.service';
 import { RmChatInput } from "../../inputs/chat-input/chat-input.component";
 import { RmMessage } from '@runmates/ui/components';
-import { IonicModule } from '@ionic/angular';
-import { ChatMessage } from '@runmates/types/chats';
 
 export interface ChatUserInfo {
   name: string;
@@ -15,7 +13,7 @@ export interface ChatUserInfo {
 //TODO: Add an animation when a new message is received
 @Component({
   selector: 'rm-chat-container',
-  imports: [CommonModule, RmChatInput, RmMessage, IonicModule],
+  imports: [CommonModule, RmChatInput, RmMessage],
   templateUrl: './chat-container.component.html',
   styleUrl: './chat-container.component.scss',
 })
