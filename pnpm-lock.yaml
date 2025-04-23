@@ -132,7 +132,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 19.2.5
-        version: 19.2.5(edaec42804b8b7c6a96739430ec856e5)
+        version: 19.2.5(967c523e7d6db3b172faf471d03ec742)
       '@angular-devkit/core':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -153,10 +153,10 @@ importers:
         version: 3.2.6(react@19.1.0)(storybook@8.6.12(prettier@2.8.8))
       '@nx/angular':
         specifier: 20.7.0
-        version: 20.7.0(c671119a839682afcb09d7c43f79d81d)
+        version: 20.7.0(2d40fc32580903778463cef29fc69626)
       '@nx/storybook':
         specifier: 20.7.0
-        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.7.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
+        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.8.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
       '@schematics/angular':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -168,7 +168,7 @@ importers:
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
       '@storybook/angular':
         specifier: ^8.6.11
-        version: 8.6.12(2a0abf20b92228d565b62523e813477a)
+        version: 8.6.12(3e493373df5d03d283ce5a0840585abe)
       '@storybook/core-server':
         specifier: ^8.6.11
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
@@ -308,6 +308,9 @@ importers:
       '@chromatic-com/storybook':
         specifier: ^3.2.6
         version: 3.2.6(react@19.1.0)(storybook@8.6.12(prettier@2.8.8))
+      '@ngx-env/builder':
+        specifier: ^19.0.4
+        version: 19.0.4(webpack@5.99.5(@swc/core@1.11.21(@swc/helpers@0.5.17)))
       '@nx/angular':
         specifier: 20.7.0
         version: 20.7.0(2d40fc32580903778463cef29fc69626)
@@ -637,6 +640,9 @@ importers:
       '@fontsource/audiowide':
         specifier: ^5.1.1
         version: 5.2.5
+      '@ionic/angular':
+        specifier: ^8.4.3
+        version: 8.5.5(@angular/core@19.2.4(rxjs@7.8.2)(zone.js@0.15.0))(@angular/forms@19.2.4(@angular/common@19.2.4(@angular/core@19.2.4(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.4(rxjs@7.8.2)(zone.js@0.15.0))(@angular/platform-browser@19.2.4(@angular/animations@19.2.4(@angular/core@19.2.4(rxjs@7.8.2)(zone.js@0.15.0)))(@angular/common@19.2.4(@angular/core@19.2.4(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.4(rxjs@7.8.2)(zone.js@0.15.0)))(rxjs@7.8.2))(@angular/router@19.2.4(@angular/common@19.2.4(@angular/core@19.2.4(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.4(rxjs@7.8.2)(zone.js@0.15.0))(@angular/platform-browser@19.2.4(@angular/animations@19.2.4(@angular/core@19.2.4(rxjs@7.8.2)(zone.js@0.15.0)))(@angular/common@19.2.4(@angular/core@19.2.4(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.4(rxjs@7.8.2)(zone.js@0.15.0)))(rxjs@7.8.2))(rxjs@7.8.2)(zone.js@0.15.0)
       '@storybook/addon-actions':
         specifier: ^8.6.12
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
@@ -649,7 +655,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 19.2.5
-        version: 19.2.5(967c523e7d6db3b172faf471d03ec742)
+        version: 19.2.5(edaec42804b8b7c6a96739430ec856e5)
       '@angular-devkit/core':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -670,10 +676,10 @@ importers:
         version: 3.2.6(react@19.1.0)(storybook@8.6.12(prettier@2.8.8))
       '@nx/angular':
         specifier: 20.7.0
-        version: 20.7.0(2d40fc32580903778463cef29fc69626)
+        version: 20.7.0(c671119a839682afcb09d7c43f79d81d)
       '@nx/storybook':
         specifier: 20.7.0
-        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.8.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
+        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.7.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
       '@schematics/angular':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -688,7 +694,7 @@ importers:
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
       '@storybook/angular':
         specifier: ^8.6.11
-        version: 8.6.12(3e493373df5d03d283ce5a0840585abe)
+        version: 8.6.12(2a0abf20b92228d565b62523e813477a)
       '@storybook/core-server':
         specifier: ^8.6.11
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
@@ -1714,6 +1720,14 @@ packages:
   '@discoveryjs/json-ext@0.6.3':
     resolution: {integrity: sha512-4B4OijXeVNOPZlYA2oEwWOTkzyltLao+xbotHQeqN++Rv27Y6s818+n2Qkp8q+Fxhn0t/5lA5X1Mxktud8eayQ==}
     engines: {node: '>=14.17.0'}
+
+  '@dotenv-run/core@1.3.6':
+    resolution: {integrity: sha512-lVfZc2DWu2P2rKyjrLDN9dw0gKHaFmNMdnrb7peoFv+LUmMxvp9QrWTzU585dU1z2Jj93a2Y3X2T890hAj+mcw==}
+
+  '@dotenv-run/webpack@1.5.0':
+    resolution: {integrity: sha512-OXHWKbG7bsJ+I21CytLP/YLT5BaLesrE8QSJgEGzorLAMklgr8FkRWvZMpAYg7R7lQ5/r/67ei36QH7gAdBkpA==}
+    peerDependencies:
+      webpack: ^5.0.0
 
   '@emnapi/core@1.4.3':
     resolution: {integrity: sha512-4m62DuCE07lw01soJwPiBGC0nAww0Q+RY70VZ+n49yDIO13yyinhbWCeNnaob0lakDtWQzSdtNWzJeOJt2ma+g==}
@@ -3084,6 +3098,9 @@ packages:
       '@angular/compiler-cli': ^19.0.0 || ^19.2.0-next.0
       typescript: '>=5.5 <5.9'
       webpack: ^5.54.0
+
+  '@ngx-env/builder@19.0.4':
+    resolution: {integrity: sha512-1WTXhgcuAfSk6RFDnuvfEvLDZsxcc/B7fb3+gk6cYhGKKj+Di6LbA93VMXHNexws1eNGqiGZwKYICGUuP7evAg==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -5667,6 +5684,10 @@ packages:
 
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
+
+  dotenv-expand@10.0.0:
+    resolution: {integrity: sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==}
+    engines: {node: '>=12'}
 
   dotenv-expand@11.0.7:
     resolution: {integrity: sha512-zIHwmZPRshsCdpMDyVsqGmgyP0yT8GAgXUnkdAoJisxvf33k7yO6OuoKmcTGuXPWSsm8Oh88nZicRLA9Y0rUeA==}
@@ -11523,6 +11544,18 @@ snapshots:
 
   '@discoveryjs/json-ext@0.6.3': {}
 
+  '@dotenv-run/core@1.3.6':
+    dependencies:
+      chalk: 4.1.2
+      dotenv: 16.5.0
+      dotenv-expand: 10.0.0
+      find-up: 5.0.0
+
+  '@dotenv-run/webpack@1.5.0(webpack@5.99.5(@swc/core@1.11.21(@swc/helpers@0.5.17)))':
+    dependencies:
+      '@dotenv-run/core': 1.3.6
+      webpack: 5.99.5(@swc/core@1.11.21(@swc/helpers@0.5.17))
+
   '@emnapi/core@1.4.3':
     dependencies:
       '@emnapi/wasi-threads': 1.0.2
@@ -13096,6 +13129,13 @@ snapshots:
       '@angular/compiler-cli': 19.2.4(@angular/compiler@19.2.4)(typescript@5.7.3)
       typescript: 5.7.3
       webpack: 5.98.0(@swc/core@1.11.21(@swc/helpers@0.5.17))(esbuild@0.25.1)
+
+  '@ngx-env/builder@19.0.4(webpack@5.99.5(@swc/core@1.11.21(@swc/helpers@0.5.17)))':
+    dependencies:
+      '@dotenv-run/webpack': 1.5.0(webpack@5.99.5(@swc/core@1.11.21(@swc/helpers@0.5.17)))
+      glob: 10.4.5
+    transitivePeerDependencies:
+      - webpack
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -17298,6 +17338,8 @@ snapshots:
     dependencies:
       no-case: 3.0.4
       tslib: 2.8.1
+
+  dotenv-expand@10.0.0: {}
 
   dotenv-expand@11.0.7:
     dependencies:

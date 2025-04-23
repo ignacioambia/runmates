@@ -1,7 +1,8 @@
-import { Injectable, InjectionToken, Injector, ViewContainerRef } from '@angular/core';
+import { Injectable, InjectionToken, Injector, ViewContainerRef, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Socket, io } from 'socket.io-client';
 import { ChatMessage } from '@runmates/types/chats';
+import { RM_API_CONFIG } from '../rm.module';
 
 export const RM_DIALOG_PARAMS = new InjectionToken<any>('RM_DIALOG_PARAMS');
 
@@ -12,9 +13,13 @@ export const RM_DIALOG_PARAMS = new InjectionToken<any>('RM_DIALOG_PARAMS');
 export class ChatService {
 
   private socket: Socket;
+  private apiConfig = inject(RM_API_CONFIG);
 
   constructor() {
-    this.socket = io('http://localhost:3000/chat');
+    this.socket = io(`${this.apiConfig.apiUrl}/chat`, {
+      withCredentials: true,
+      transports: ['websocket'],
+    });
   }
 
   registerUser() {

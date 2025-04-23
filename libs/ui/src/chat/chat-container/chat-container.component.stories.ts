@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { RmChatContainer } from './chat-container.component';
 import { primaryMessagesMock, multipleMessagesMock } from '../@mocks/chat-container-messages.mock';
+import { signal } from '@angular/core';
 
 export default {
   component: RmChatContainer,
@@ -22,7 +23,7 @@ export const Primary: Story = {
       title: 'Entrenador personal',
       avatar: 'mateo-profile-pic.png',
     },
-    messages: primaryMessagesMock,
+    messages: signal(primaryMessagesMock),
   },
 };
 
@@ -33,6 +34,6 @@ export const MultipleMessages: Story = {
       title: 'Entrenador personal',
       avatar: 'mateo-profile-pic.png',
     },
-    messages: multipleMessagesMock,
+    messages: signal(multipleMessagesMock),
   }, 
 }; 

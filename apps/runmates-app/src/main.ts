@@ -9,6 +9,7 @@ import {
   IonicRouteStrategy,
   provideIonicAngular,
 } from '@ionic/angular/standalone';
+import { RM_API_CONFIG } from '@runmates/ui';
 
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
@@ -19,6 +20,7 @@ import { importProvidersFrom } from '@angular/core';
 
 bootstrapApplication(AppComponent, {
   providers: [
+    { provide: RM_API_CONFIG, useValue: { apiUrl: import.meta.env.NG_APP_RUNMATES_BACK } },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
