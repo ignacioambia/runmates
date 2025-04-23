@@ -2,7 +2,7 @@ import { Injectable, InjectionToken, Injector, ViewContainerRef, inject } from '
 import { Observable } from 'rxjs';
 import { Socket, io } from 'socket.io-client';
 import { ChatMessage } from '@runmates/types/chats';
-import { RM_API_CONFIG } from '@runmates/ui';
+import { RM_API_CONFIG } from '../rm.module';
 
 export const RM_DIALOG_PARAMS = new InjectionToken<any>('RM_DIALOG_PARAMS');
 
