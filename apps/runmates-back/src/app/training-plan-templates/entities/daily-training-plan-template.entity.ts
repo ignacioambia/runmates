@@ -13,8 +13,8 @@ export class DailyTrainingPlanTemplateEntity {
   @Column()
   sequence_number: number;
 
-  @Column({ type: 'enum', enum: ['low', 'medium', 'high', 'rest'] })
-  intensity: TrainingIntensity;
+  @Column({ type: 'int'})
+  intensity: number;
 
   @Column()
   notes: string;

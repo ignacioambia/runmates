@@ -4,9 +4,9 @@ import { TrainingPlanTemplatesController } from './training-plan-templates.contr
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TrainingPlanTemplateEntity } from './entities/training-plan-template.entity';
 import { DailyTrainingPlanTemplateEntity } from './entities/daily-training-plan-template.entity';
-
+import { TrainingActivityTemplateEntity } from './entities/training-activities-template.entity';
 @Module({
-  imports: [TypeOrmModule.forFeature([TrainingPlanTemplateEntity,DailyTrainingPlanTemplateEntity])],
+  imports: [TypeOrmModule.forFeature([TrainingPlanTemplateEntity,DailyTrainingPlanTemplateEntity, TrainingActivityTemplateEntity])],
   controllers: [TrainingPlanTemplatesController],
   providers: [TrainingPlanTemplatesService],
 })

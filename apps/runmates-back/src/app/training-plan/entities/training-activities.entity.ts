@@ -2,7 +2,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { DailyTrainingPlan } from "./daily-training-plan.entity";
 
 @Entity()
-export class TrainingActivityTemplate {
+export class TrainingActivityTemplateEntity {
  @PrimaryGeneratedColumn()
  id: number;
 
@@ -15,7 +15,7 @@ export class TrainingActivityTemplate {
  @Column()
  duration: number;
 
- @Column()
+ @Column({ nullable: true })
  description: string;
 
 }
