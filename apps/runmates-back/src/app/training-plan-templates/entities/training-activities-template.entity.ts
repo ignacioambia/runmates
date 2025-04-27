@@ -1,13 +1,13 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { DailyTrainingPlanTemplate } from "./daily-training-plan-template.entity";
+import { DailyTrainingPlanTemplateEntity } from "./daily-training-plan-template.entity";
 
 @Entity()
 export class TrainingActivityTemplate {
  @PrimaryGeneratedColumn()
  id: number;
 
- @ManyToOne(() => DailyTrainingPlanTemplate, dailyTrainingPlanTemplate => dailyTrainingPlanTemplate.id)
- daily_training_plan_template: DailyTrainingPlanTemplate;
+ @ManyToOne(() => DailyTrainingPlanTemplateEntity, dailyTrainingPlanTemplate => dailyTrainingPlanTemplate.id)
+ daily_training_plan_template: DailyTrainingPlanTemplateEntity;
 
  @Column()
  title: string;
