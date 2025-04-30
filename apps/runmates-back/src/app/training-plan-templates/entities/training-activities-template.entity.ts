@@ -12,8 +12,8 @@ export class TrainingActivityTemplateEntity {
  @Column()
  activity: string;
 
- @Column({ type: 'int', nullable: true })
- distance: number;
+  @Column({ type: 'float', nullable: true })
+  distance: number;
 
  @Column({ nullable: true })
  description: string;
