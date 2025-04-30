@@ -1,20 +1,20 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
-import { TrainingPlanTemplate } from "./training-plan-template.entity";
+import { TrainingPlanTemplateEntity } from "./training-plan-template.entity";
 import { TrainingIntensity } from "@runmates/types/training-plans";
 
 @Entity()
-export class DailyTrainingPlanTemplate {
+export class DailyTrainingPlanTemplateEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => TrainingPlanTemplate, trainingPlanTemplate => trainingPlanTemplate.id)
-  training_plan_template: TrainingPlanTemplate;
+  @ManyToOne(() => TrainingPlanTemplateEntity, trainingPlanTemplate => trainingPlanTemplate.id)
+  training_plan_template: TrainingPlanTemplateEntity;
 
   @Column()
   sequence_number: number;
 
-  @Column({ type: 'enum', enum: ['low', 'medium', 'high', 'rest'] })
-  intensity: TrainingIntensity;
+  @Column({ type: 'int'})
+  intensity: number;
 
   @Column()
   notes: string;

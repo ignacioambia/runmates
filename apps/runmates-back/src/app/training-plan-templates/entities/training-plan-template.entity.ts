@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class TrainingPlanTemplate {
+export class TrainingPlanTemplateEntity {
  @PrimaryGeneratedColumn()
  id: number;
 
