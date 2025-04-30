@@ -73,6 +73,18 @@ export class TrainingPlanTemplatesService {
     }
   }
 
+  async findNearestDistance(kilometers: number): Promise<number> {
+    const result = await this.trainingPlanTemplateRepository
+      .createQueryBuilder('template')
+      .select(['template.training_distance'])
+      .addSelect('ABS(template.training_distance - :kilometers)', 'distance_difference')
+      .setParameter('kilometers', kilometers)
+      .orderBy('distance_difference', 'ASC')
+      .getOne();
+
+    return result.training_distance;
+  }
+
   findAll() {
     return `This action returns all trainingPlanTemplates`;
   }
