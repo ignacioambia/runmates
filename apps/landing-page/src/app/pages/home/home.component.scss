@@ -10,10 +10,10 @@
  height: 100vh;
 
  .header {
-  margin-top: clamp(1rem,4.5vw,4rem);
+  margin-top: clamp(1rem,4.5vw,2.5rem);
   h1 {
    margin: 0;
-   font-size: clamp(2.5rem, 14vw, 6rem);
+   font-size: clamp(2.5rem, 14vw, 4rem);
    background-image: linear-gradient(var(--primary-color), var(--secondary-color));
    color: transparent;
    background-clip: text;
@@ -27,7 +27,7 @@
   }
 
   img {
-   width: clamp(5rem,24vw,10rem);
+   width: clamp(5rem,10vw,8rem);
   }
  }
 
@@ -76,6 +76,37 @@
 
   img {
    height: 40px;
+  }
+ }
+}
+
+.screenshots {
+ display: grid;
+ gap: 0rem 2rem;
+ margin: 2rem;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+
+
+ @media screen and (max-width: 60rem) {
+  grid-template-columns: 1fr 1fr;
+  gap: 0rem 1rem;
+  img {
+   width: max(160px, 30vw)!important;
+
+  }
+
+ }
+
+ img {
+  border: 1px solid var(--secondary-text-color);
+  width: max(200px, 15vw);
+  border-radius: 2rem;
+
+  &:nth-child(even) {
+   margin-top: 50px;
+  }
+  &:nth-child(odd) {
+   margin-bottom: 50px;
   }
  }
 }
