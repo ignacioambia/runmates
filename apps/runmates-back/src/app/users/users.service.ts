@@ -16,12 +16,11 @@ export class UsersService {
   ) {}
 
   async registerUser(createUserDto: CreateUserDto): Promise<RegisterUserResponse> {
+    // const usersExists = await this.userRepository.findOneBy({ email: createUserDto.email });
 
-    const usersExists = await this.userRepository.findOneBy({ email: createUserDto.email });
-
-    if (usersExists) {
-      throw new BadRequestException('User already exists');
-    }
+    // if (createUserDto.email && usersExists) {
+    //   throw new BadRequestException('User already exists');
+    // }
     const user = this.userRepository.create(createUserDto);
     const savedUser = await this.userRepository.save(user);
 
