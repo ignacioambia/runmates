@@ -28,10 +28,10 @@ export class ChatService {
 
 
   sendMessage(messages: any[]) {
-    const defaultMessage: ChatMessage = { 
-      type: 'user',
-      content: '',
-    }
+    // const defaultMessage: ChatMessage = { 
+    //   role: 'user',
+    //   content: '',
+    // }
     this.socket.emit('message', messages);
   }
   
@@ -44,9 +44,9 @@ export class ChatService {
   }
 
   onSignup() { 
-    return new Observable<any>((observer) => {
-      this.socket.on('signup', (messages) => {
-        observer.next(messages);
+    return new Observable<ChatMessage>((observer) => {
+      this.socket.on('signup', (chatMessage) => {
+        observer.next(chatMessage);
       });
     });
   }

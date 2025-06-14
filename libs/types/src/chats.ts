@@ -2,6 +2,7 @@
 export type ChatAction = 'signup' | 'explainPlan';
 export interface ChatMessage {
   action?: ChatAction;
-  type: 'user' | 'assistant';
+  threadId: string;
+  role: 'user' | 'assistant';
   content: string;
 }
