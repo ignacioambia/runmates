@@ -65,7 +65,27 @@ export class ChatsService {
   ) {
   }
 
-  async processMessage(messages: any): Promise<any> {
+  async processMessage(message: ChatMessage): Promise<ChatMessage> {
+    await this.aiClient.beta.threads.messages.create(
+      message.threadId,
+      {
+        role: "user",
+        content: message.content,
+      }
+    );
+    return new Promise((resolve, reject) => {
+      this.aiClient.beta.threads.runs.stream(message.threadId, { assistant_id: this.configService.get('OPENAI_ASSISTANT_ID') })
+        .on('messageDone', (newMessage) => {
+          console.log('Message is finally done', message);
+          resolve({
+            threadId: message.threadId,
+            role: 'assistant',
+            content: newMessage.content[0]['text'].value,
+          });
+
+        });
+    });
+
     // const result = await this.aiClient.agents.complete({
     //   agentId: 'ag:d524bc51:20250313:untitled-agent:ba3114ed',
     //   tools: this.tools,
@@ -89,23 +109,23 @@ export class ChatsService {
 
     const thread = await this.aiClient.beta.threads.create();
 
-    const message  =  await this.aiClient.beta.threads.messages.create(
+    const message = await this.aiClient.beta.threads.messages.create(
       thread.id,
       {
-      role: 'user',
-      content: "Hi! I'm new user, can you present yourself, be very brief and ask me my name? Im open to you asking me questions.",
+        role: 'user',
+        content: "Hi! I'm new user, can you present yourself, be very brief and ask me my name? Im open to you asking me questions.",
       }
     );
 
     const processSignupMessage = () => new Promise<string>((resolve, reject) => {
-    const run = this.aiClient.beta.threads.runs.stream(thread.id, { assistant_id: this.configService.get('OPENAI_ASSISTANT_ID') })
-    .on('messageDone', (message) => {
-      console.log('Tool call delta: ',);
-      resolve( message.content[0]['text'].value);
-    });
+      const run = this.aiClient.beta.threads.runs.stream(thread.id, { assistant_id: this.configService.get('OPENAI_ASSISTANT_ID') })
+        .on('messageDone', (message) => {
+          console.log('Tool call delta: ',);
+          resolve(message.content[0]['text'].value);
+        });
     });
 
-    return { 
+    return {
       threadId: thread.id,
       role: 'assistant',
       content: await processSignupMessage(),

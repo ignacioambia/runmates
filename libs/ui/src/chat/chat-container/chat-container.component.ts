@@ -24,11 +24,13 @@ export class RmChatContainer {
   public userInfo = input<ChatUserInfo>();
 
   public messages = signal<ChatMessage[]>([]);
-  public displayedMessages = computed(() => this.messages().filter((message) => message))
+  public displayedMessages = computed(() => this.messages().filter((message) => message));
+  private threadId = '';
   
   constructor(private chatService: ChatService) {
     //TODO: THIS MUST BE MOVED outSIDE THE CONSTRUCTOR
     this.chatService.onSignup().subscribe((chatMessage) => {
+      this.threadId = chatMessage.threadId;
       this.messages.update(() => [chatMessage]);
     });
 
@@ -38,12 +40,13 @@ export class RmChatContainer {
   }
 
   public sendMessage(message: string) {
-    const newMessage: any = {
+    const newMessage: ChatMessage = {
+        threadId: this.threadId,
         role: 'user',
         content: message,
     };
     this.messages.update((currentMessages) => [...currentMessages, newMessage]);
 
-    this.chatService.sendMessage(this.messages());
+    this.chatService.sendMessage(newMessage);
   }
 }

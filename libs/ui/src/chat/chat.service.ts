@@ -27,16 +27,12 @@ export class ChatService {
   }
 
 
-  sendMessage(messages: any[]) {
-    // const defaultMessage: ChatMessage = { 
-    //   role: 'user',
-    //   content: '',
-    // }
-    this.socket.emit('message', messages);
+  sendMessage(message: ChatMessage) {
+    this.socket.emit('message', message);
   }
   
   receiveMessage() {
-    return new Observable<any>((observer) => {
+    return new Observable<ChatMessage>((observer) => {
       this.socket.on('message', (message) => {
         observer.next(message);
       });

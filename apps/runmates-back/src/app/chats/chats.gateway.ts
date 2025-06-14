@@ -35,9 +35,9 @@ export class ChatsGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @SubscribeMessage('message')
   async handleMessage(
     //TODO: Add message types, where we can also hide the message that were just used for prompt
-    @MessageBody() messages: any[],
+    @MessageBody() message: ChatMessage,
   ) {
-    const resultMessage = await this.chatService.processMessage(messages);
+    const resultMessage = await this.chatService.processMessage(message);
     return resultMessage && { event: 'message', data: resultMessage }; // Respond to the sender
   }
 }
