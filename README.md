@@ -17,7 +17,7 @@ Runmates is a hybrid running app powered by Ionic designed to help runners impro
 
 - **Frontend**: Angular
 - **Backend**: Node.js with PostgreSQL
-- **AI Integration**: MistralAI
+- **AI Integration**: OpenAI
 - **Monorepo Management**: NX
 - **UI Components**: Custom-built `@runmates/ui` library
 

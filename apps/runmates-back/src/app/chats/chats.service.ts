@@ -6,11 +6,6 @@ import { ChatAction, ChatMessage } from '@runmates/types/chats';
 import { ConfigService } from '@nestjs/config';
 import OpenAI from 'openai';
 import { User } from '@runmates/types/users';
-
-import {
-  Messages,
-  Tool,
-} from '@mistralai/mistralai/models/components';
 import { TrainingPlanTemplatesService } from '../training-plan-templates/training-plan-templates.service';
 
 @Injectable()

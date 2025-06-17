@@ -31,7 +31,6 @@
     "my-nest-app-e2e"
   ],
   "dependencies": {
-    "@mistralai/mistralai": "^1.5.2",
     "@nestjs/common": "^10.0.2",
     "@nestjs/config": "^4.0.0",
     "@nestjs/core": "^10.0.2",
