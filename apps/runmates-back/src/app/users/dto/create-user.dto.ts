@@ -2,20 +2,22 @@ import { Exact } from "@runmates/types/common";
 import { User } from "@runmates/types/users";
 import { IsEmail, IsNumber, IsOptional, IsString } from "class-validator";
 
-export class CreateUserDto implements Exact<CreateUserDto, User>{
- @IsString()
- @IsOptional()
- name: string;
+export class CreateUserDto implements Exact<CreateUserDto, User> {
+    @IsString()
+    @IsOptional()
+    name: string;
 
- @IsEmail()
- @IsOptional()
- email: string;
+    @IsString()
+    @IsOptional()
+    motivation: string;
 
- @IsNumber()
- @IsOptional()
- averagePace: number;
+    @IsString()
+    @IsOptional()
+    frequency: string;
 
- @IsString()
- @IsOptional()
- motivation: string;
+    @IsNumber()
+    @IsOptional()
+    goal: number;
+
+
 }
