@@ -15,5 +15,5 @@
   </div>
 
   <!-- TODO: It might be better to have a padding with background fro a better presentation-->
-  <rm-chat-input class="ion-safe-area-bottom" (messageSent)="sendMessage($event)" />
+  <rm-chat-input [disabled]="inputDisabled"    class="ion-safe-area-bottom" (messageSent)="sendMessage($event)" />
 </div>

@@ -14,6 +14,7 @@ export class RmChatInput {
   @ViewChild('chatInput') public chatInput!: ElementRef<HTMLTextAreaElement>;
   public placeholder = input<string>('Message...');
   public messageSent = output<string>();
+  public disabled = input<boolean>(false);
   public message = '';
 
   public handleSendMessage(event?: Event): void {

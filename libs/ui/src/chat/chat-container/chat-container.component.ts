@@ -38,6 +38,7 @@ export class RmChatContainer {
 
   public messages = signal<ChatMessage[]>([]);
   private threadId = '';
+  public inputDisabled = true;
 
   constructor(private chatService: ChatService) {
     effect(() => {
@@ -47,10 +48,12 @@ export class RmChatContainer {
     this.chatService.onSignup().subscribe((chatMessage) => {
       this.threadId = chatMessage.threadId;
       this.messages.update(() => [chatMessage]);
+      this.inputDisabled = false;
     });
 
     this.chatService.receiveMessage().subscribe((message) => {
       this.messages.update((currentMessages) => [...currentMessages, message]);
+      this.inputDisabled = false;
     });
   }
 
@@ -75,5 +78,6 @@ export class RmChatContainer {
     this.messages.update((currentMessages) => [...currentMessages, newMessage]);
 
     this.chatService.sendMessage(newMessage);
+    this.inputDisabled = true;
   }
 }

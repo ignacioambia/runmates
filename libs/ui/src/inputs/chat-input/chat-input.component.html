@@ -1,8 +1,9 @@
-<div class="chat-input-wrapper">
+<div class="chat-input-wrapper" [ngClass]="{ disabled: disabled() }">
   <textarea
     #chatInput
     [(ngModel)]="message"
-    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [placeholder]="disabled() ? 'Please wait...' : placeholder()"
     type="text"
     (keydown.enter)="handleSendMessage($event);"
     (input)="adjustHeight()"
