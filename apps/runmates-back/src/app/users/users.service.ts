@@ -24,7 +24,7 @@ export class UsersService {
     const user = this.userRepository.create(createUserDto);
     const savedUser = await this.userRepository.save(user);
 
-    const token = this.authService.generateToken({ id: savedUser.id, email: savedUser.email });
+    const token = this.authService.generateToken({ id: savedUser.id });
     return { userId: savedUser.id, token};
   }
 

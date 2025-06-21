@@ -1,8 +1,8 @@
 export interface User {
   name: string;
-  email: string;
-  averagePace: number;
   motivation: string;
+  frequency: string;
+  goal: number;
 }
 
 export type RegisterUserResponse = { userId: number,  token: string }; 

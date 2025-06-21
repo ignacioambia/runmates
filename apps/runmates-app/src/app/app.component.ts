@@ -6,7 +6,7 @@ import { Storage } from '@ionic/storage-angular';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonApp, IonRouterOutlet, RmModule],
+  imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent {
   constructor(private storage: Storage) {

@@ -8,7 +8,7 @@ export class AuthService {
   constructor(private readonly jwtService: JwtService) {}
 
   // Generate a JWT token for a user
-  generateToken(payload: { id: number; email: string }): string {
+  generateToken(payload: { id: number }): string {
     return this.jwtService.sign(payload); // Sign the payload with the secret
   }
 

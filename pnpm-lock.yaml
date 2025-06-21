@@ -132,7 +132,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 19.2.5
-        version: 19.2.5(967c523e7d6db3b172faf471d03ec742)
+        version: 19.2.5(edaec42804b8b7c6a96739430ec856e5)
       '@angular-devkit/core':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -153,10 +153,10 @@ importers:
         version: 3.2.6(react@19.1.0)(storybook@8.6.12(prettier@2.8.8))
       '@nx/angular':
         specifier: 20.7.0
-        version: 20.7.0(2d40fc32580903778463cef29fc69626)
+        version: 20.7.0(c671119a839682afcb09d7c43f79d81d)
       '@nx/storybook':
         specifier: 20.7.0
-        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.8.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
+        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.7.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
       '@schematics/angular':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -168,7 +168,7 @@ importers:
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
       '@storybook/angular':
         specifier: ^8.6.11
-        version: 8.6.12(3e493373df5d03d283ce5a0840585abe)
+        version: 8.6.12(2a0abf20b92228d565b62523e813477a)
       '@storybook/core-server':
         specifier: ^8.6.11
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
@@ -371,9 +371,6 @@ importers:
 
   apps/runmates-back:
     dependencies:
-      '@mistralai/mistralai':
-        specifier: ^1.5.2
-        version: 1.6.0(zod@3.24.3)
       '@nestjs/common':
         specifier: ^10.0.2
         version: 10.4.17(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.14)(rxjs@7.8.2)
@@ -419,6 +416,9 @@ importers:
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.2
+      openai:
+        specifier: ^5.3.0
+        version: 5.3.0(ws@8.18.1)(zod@3.24.3)
       pg:
         specifier: ^8.14.0
         version: 8.14.1
@@ -655,7 +655,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 19.2.5
-        version: 19.2.5(edaec42804b8b7c6a96739430ec856e5)
+        version: 19.2.5(967c523e7d6db3b172faf471d03ec742)
       '@angular-devkit/core':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -676,10 +676,10 @@ importers:
         version: 3.2.6(react@19.1.0)(storybook@8.6.12(prettier@2.8.8))
       '@nx/angular':
         specifier: 20.7.0
-        version: 20.7.0(c671119a839682afcb09d7c43f79d81d)
+        version: 20.7.0(2d40fc32580903778463cef29fc69626)
       '@nx/storybook':
         specifier: 20.7.0
-        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.7.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
+        version: 20.7.0(@babel/traverse@7.27.0)(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@1.21.7))(nx@20.8.0(@swc-node/register@1.9.2(@swc/core@1.11.21(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.7.3))(@swc/core@1.11.21(@swc/helpers@0.5.17)))(typescript@5.7.3)
       '@schematics/angular':
         specifier: 19.2.5
         version: 19.2.5(chokidar@4.0.3)
@@ -694,7 +694,7 @@ importers:
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
       '@storybook/angular':
         specifier: ^8.6.11
-        version: 8.6.12(2a0abf20b92228d565b62523e813477a)
+        version: 8.6.12(3e493373df5d03d283ce5a0840585abe)
       '@storybook/core-server':
         specifier: ^8.6.11
         version: 8.6.12(storybook@8.6.12(prettier@2.8.8))
@@ -2616,11 +2616,6 @@ packages:
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
-
-  '@mistralai/mistralai@1.6.0':
-    resolution: {integrity: sha512-PQwGV3+n7FbE7Dp3Vnd8DAa3ffx6WuVV966Gfmf4QvzwcO3Mvxpz0SnJ/PjaZcsCwApBCZpNyQzvarAKEQLKeQ==}
-    peerDependencies:
-      zod: '>= 3'
 
   '@modern-js/node-bundle-require@2.65.1':
     resolution: {integrity: sha512-XpEkciVEfDbkkLUI662ZFlI9tXsUQtLXk4NRJDBGosNnk9uL2XszmC8sKsdCSLK8AYuPW2w6MTVWuJsOR0EU8A==}
@@ -7556,6 +7551,7 @@ packages:
   multer@1.4.4-lts.1:
     resolution: {integrity: sha512-WeSGziVj6+Z2/MwQo3GvqzgR+9Uc+qt8SwHKh3gvNPiISKfsMfG4SvCOFYlxxgkXt7yIV2i1yczehm0EOKIxIg==}
     engines: {node: '>= 6.0.0'}
+    deprecated: Multer 1.x is impacted by a number of vulnerabilities, which have been patched in 2.x. You should upgrade to the latest 2.x version.
 
   multicast-dns@7.2.5:
     resolution: {integrity: sha512-2eznPJP8z2BFLX50tf0LuODrpINqP1RVIm/CObbTcBRITQgmC/TjcREF1NeTBzIcR5XO/ukWo+YHOjBbFwIupg==}
@@ -7803,6 +7799,18 @@ packages:
   open@8.4.2:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
+
+  openai@5.3.0:
+    resolution: {integrity: sha512-VIKmoF7y4oJCDOwP/oHXGzM69+x0dpGFmN9QmYO+uPbLFOmmnwO+x1GbsgUtI+6oraxomGZ566Y421oYVu191w==}
+    hasBin: true
+    peerDependencies:
+      ws: ^8.18.0
+      zod: ^3.23.8
+    peerDependenciesMeta:
+      ws:
+        optional: true
+      zod:
+        optional: true
 
   opener@1.5.2:
     resolution: {integrity: sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==}
@@ -10099,11 +10107,6 @@ packages:
   yoctocolors-cjs@2.1.2:
     resolution: {integrity: sha512-cYVsTjKl8b+FrnidjibDWskAv7UKOfcwaVZdp/it9n1s9fU3IkgDbhdIRKCW4JDsAlECJY0ytoVPT3sK6kideA==}
     engines: {node: '>=18'}
-
-  zod-to-json-schema@3.24.5:
-    resolution: {integrity: sha512-/AuWwMP+YqiPbsJx5D6TfgRTc4kTLjsh5SOcd4bLsfUg2RcEXrFMJl1DGgdHy2aCfsIA/cr/1JM0xcB2GZji8g==}
-    peerDependencies:
-      zod: ^3.24.1
 
   zod@3.24.3:
     resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
@@ -12413,11 +12416,6 @@ snapshots:
       '@types/mdx': 2.0.13
       '@types/react': 18.3.20
       react: 19.1.0
-
-  '@mistralai/mistralai@1.6.0(zod@3.24.3)':
-    dependencies:
-      zod: 3.24.3
-      zod-to-json-schema: 3.24.5(zod@3.24.3)
 
   '@modern-js/node-bundle-require@2.65.1':
     dependencies:
@@ -20412,6 +20410,11 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
+  openai@5.3.0(ws@8.18.1)(zod@3.24.3):
+    optionalDependencies:
+      ws: 8.18.1
+      zod: 3.24.3
+
   opener@1.5.2: {}
 
   optionator@0.9.4:
@@ -23286,10 +23289,7 @@ snapshots:
 
   yoctocolors-cjs@2.1.2: {}
 
-  zod-to-json-schema@3.24.5(zod@3.24.3):
-    dependencies:
-      zod: 3.24.3
-
-  zod@3.24.3: {}
+  zod@3.24.3:
+    optional: true
 
   zone.js@0.15.0: {}

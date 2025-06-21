@@ -78,7 +78,7 @@ export class TrainingPlanTemplatesService {
       .createQueryBuilder('template')
       .select(['template.training_distance'])
       .addSelect('ABS(template.training_distance - :kilometers)', 'distance_difference')
-      .setParameter('kilometers', kilometers)
+      .setParameter('kilometers', Math.round(kilometers))
       .orderBy('distance_difference', 'ASC')
       .getOne();
 
