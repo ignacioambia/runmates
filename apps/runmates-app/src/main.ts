@@ -17,9 +17,11 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { baseUrlInterceptor } from '@runmates/ui';
 import { IonicStorageModule, Storage, provideStorage } from '@ionic/storage-angular';
 import { importProvidersFrom } from '@angular/core';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 bootstrapApplication(AppComponent, {
   providers: [
+    provideAnimations(),
     { provide: RM_API_CONFIG, useValue: { apiUrl: import.meta.env.NG_APP_RUNMATES_BACK } },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
