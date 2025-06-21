@@ -38,9 +38,9 @@ export class ChatsService {
     );
     return new Promise((resolve, reject) => {
       this.aiClient.beta.threads.runs.stream(message.threadId, { assistant_id: this.configService.get('OPENAI_ASSISTANT_ID') })
-        .on('toolCallDone', (toolCall) => {
+        .on('toolCallDone', async (toolCall) => {
           const args = toolCall.type === 'function' && JSON.parse(toolCall.function.arguments);
-          this.storeUserBasicInfo(args)
+          const trainingPlan = await this.trainingPlanTemplatesService.getBestPlan(args.goal);
           resolve({
             threadId: message.threadId,
             role: 'assistant',
@@ -60,10 +60,6 @@ export class ChatsService {
   }
 
 
-  async storeUserBasicInfo(userInfo: User) {
-    const nearestDistance = this.trainingPlanTemplatesService.findNearestDistance(userInfo.goal);
-    
-  }
 
   async createChat(userId: number): Promise<any> {
     const chat = this.chatRepository.create({ userId });

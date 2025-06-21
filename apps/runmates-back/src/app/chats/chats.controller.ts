@@ -9,5 +9,5 @@ export class ChatsController {
   @Post('create')
   createChat(@TokenPayload('id') userId: number) {
     return this.chatsService.createChat(userId);
-}
+  }
 }

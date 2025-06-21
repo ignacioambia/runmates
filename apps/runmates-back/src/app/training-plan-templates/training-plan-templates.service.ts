@@ -3,7 +3,7 @@ import { CreateTrainingPlanTemplateDto } from './dto/create-training-plan-templa
 import { UpdateTrainingPlanTemplateDto } from './dto/update-training-plan-template.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TrainingPlanTemplateEntity } from './entities/training-plan-template.entity';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 import { DailyTrainingPlanTemplateEntity } from './entities/daily-training-plan-template.entity';
 import { TrainingActivityTemplateEntity } from './entities/training-activities-template.entity';
 
@@ -73,16 +73,71 @@ export class TrainingPlanTemplatesService {
     }
   }
 
-  async findNearestDistance(kilometers: number): Promise<number> {
+  async getBestPlan(kilometers: number): Promise<CreateTrainingPlanTemplateDto> {
     const result = await this.trainingPlanTemplateRepository
       .createQueryBuilder('template')
-      .select(['template.training_distance'])
       .addSelect('ABS(template.training_distance - :kilometers)', 'distance_difference')
       .setParameter('kilometers', Math.round(kilometers))
       .orderBy('distance_difference', 'ASC')
       .getOne();
 
-    return result.training_distance;
+    if (!result) {
+      throw new Error(`No training plan found matching the distance: ${kilometers}km`);
+    }
+
+    return this.getFullTrainingPlan(result.id);
+  }
+  
+  async getFullTrainingPlan(planId: number) {
+    // Step 1: Get the training plan template
+    const trainingPlan = await this.trainingPlanTemplateRepository.findOne({
+      where: { id: planId }
+    });
+    
+    if (!trainingPlan) {
+      throw new Error(`Training plan with ID ${planId} not found`);
+    }
+    
+    // Step 2: Get all daily plans for this template
+    const dailyPlans = await this.dailyTrainingPlanTemplateRepository.find({
+      where: { training_plan_template: { id: planId } },
+      order: { sequence_number: 'ASC' },
+      relations: ['training_plan_template']
+    });
+    
+    // Step 3: Get all activities grouped by daily plan
+    const dailyPlanIds = dailyPlans.map(plan => plan.id);
+    const allActivities = await this.trainingActivityTemplateRepository.find({
+      where: { daily_training_plan_template: { id: In(dailyPlanIds) } },
+      relations: ['daily_training_plan_template']
+    });
+    
+    // Step 4: Format data to match CreateTrainingPlanTemplateDto structure
+    const formattedDailyPlans = dailyPlans.map(dailyPlan => {
+      // Find all activities for this daily plan
+      const planActivities = allActivities.filter(
+        activity => activity.daily_training_plan_template.id === dailyPlan.id
+      );
+      
+      // Format as DailyTrainingPlanDto
+      return {
+        intensity: dailyPlan.intensity,
+        notes: dailyPlan.notes,
+        activities: planActivities.map(activity => ({
+          activity: activity.activity,
+          distance: activity.distance,
+          description: activity.description
+        }))
+      };
+    });
+    
+    // Return in the format of CreateTrainingPlanTemplateDto
+    return {
+      name: trainingPlan.name,
+      description: trainingPlan.description,
+      training_distance: trainingPlan.training_distance,
+      plan: formattedDailyPlans
+    };
   }
 
   findAll() {
