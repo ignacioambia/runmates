@@ -119,7 +119,7 @@ export class TrainingPlanTemplatesService {
         activity => activity.daily_training_plan_template.id === dailyPlan.id
       );
       
-      // Format as DailyTrainingPlanDto
+      // Format as DailyTrainingPlanTemplateDto
       return {
         intensity: dailyPlan.intensity,
         notes: dailyPlan.notes,
