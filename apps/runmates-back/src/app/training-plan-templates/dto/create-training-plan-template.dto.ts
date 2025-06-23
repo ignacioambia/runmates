@@ -1,7 +1,7 @@
 import { IsArray, IsInt, IsNumber, IsOptional, IsString, ValidateNested, Min, Max, ArrayMinSize } from "class-validator";
 import { Type } from "class-transformer";
 
-export class TrainingPlanActivitiesDto {
+export class TrainingPlanActivitiesTemplateDto {
   @IsString()
   activity: string;
   @IsNumber()
@@ -13,7 +13,7 @@ export class TrainingPlanActivitiesDto {
   description: string;
 }
 
-export class DailyTrainingPlanDto {
+export class DailyTrainingPlanTemplateDto {
   @IsInt()
   @Min(0)
   @Max(3)
@@ -25,8 +25,8 @@ export class DailyTrainingPlanDto {
   @IsArray()
   @ArrayMinSize(1)
   @ValidateNested({ each: true })
-  @Type(() => TrainingPlanActivitiesDto)  
-  activities: TrainingPlanActivitiesDto[];
+  @Type(() => TrainingPlanActivitiesTemplateDto)  
+  activities: TrainingPlanActivitiesTemplateDto[];
 }
 
 export class CreateTrainingPlanTemplateDto {
@@ -39,6 +39,6 @@ export class CreateTrainingPlanTemplateDto {
 
   @IsArray()
   @ValidateNested({ each: true })
-  @Type(() => DailyTrainingPlanDto)
-  plan: DailyTrainingPlanDto[];
+  @Type(() => DailyTrainingPlanTemplateDto)
+  plan: DailyTrainingPlanTemplateDto[];
 }

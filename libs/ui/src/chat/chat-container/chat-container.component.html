@@ -6,14 +6,14 @@
       <div class="title">{{ userInfo()?.title }}</div>
     </div>
   </div>
-    <div class="messages">
-      @for (message of displayedMessages(); let i = $index; track i) {
-      <rm-message [role]="message.role" avatar="mateo-profile-pic.png">{{
-        message.content
+  <div class="messages" #messagesContainer>
+    @for (message of messages(); let i = $index; track i) {
+    <rm-message [@messageAnimation] [role]="message.role" avatar="mateo-profile-pic.png">{{
+      message.content
       }}</rm-message>
-      }
-    </div>
+    }
+  </div>
 
   <!-- TODO: It might be better to have a padding with background fro a better presentation-->
-  <rm-chat-input class="ion-safe-area-bottom" (messageSent)="sendMessage($event)" />
+  <rm-chat-input [disabled]="inputDisabled"    class="ion-safe-area-bottom" (messageSent)="sendMessage($event)" />
 </div>

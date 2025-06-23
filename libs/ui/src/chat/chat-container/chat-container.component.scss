@@ -1,12 +1,13 @@
 .chat-container {
- // border: 1px solid red;
  display: flex;
  flex-direction: column;
  height: 100vh;
  box-sizing: border-box;
  padding-top: 0rem;
+ padding-bottom: var(--ion-safe-area-bottom);
 
  .chat-header {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   gap: 13px;
@@ -41,15 +42,12 @@
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  overflow: scroll;
-  padding-top: 1rem;
-  margin-bottom: -2rem;
-  padding: 1rem 1rem 2rem 1rem;
-
+  overflow-y: auto;
+  padding: 1rem;
+  scroll-behavior: smooth;
  }
 
  rm-chat-input {
   padding: 0px 1rem;
-  padding-bottom: var(--ion-safe-area-bottom);
   }
 }

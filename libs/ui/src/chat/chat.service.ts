@@ -27,16 +27,12 @@ export class ChatService {
   }
 
 
-  sendMessage(messages: any[]) {
-    const defaultMessage: ChatMessage = { 
-      type: 'user',
-      content: '',
-    }
-    this.socket.emit('message', messages);
+  sendMessage(message: ChatMessage) {
+    this.socket.emit('message', message);
   }
   
   receiveMessage() {
-    return new Observable<any>((observer) => {
+    return new Observable<ChatMessage>((observer) => {
       this.socket.on('message', (message) => {
         observer.next(message);
       });
@@ -44,9 +40,9 @@ export class ChatService {
   }
 
   onSignup() { 
-    return new Observable<any>((observer) => {
-      this.socket.on('signup', (messages) => {
-        observer.next(messages);
+    return new Observable<ChatMessage>((observer) => {
+      this.socket.on('signup', (chatMessage) => {
+        observer.next(chatMessage);
       });
     });
   }
