@@ -7,6 +7,7 @@ import { ConfigService } from '@nestjs/config';
 import OpenAI from 'openai';
 import { User } from '@runmates/types/users';
 import { TrainingPlanTemplatesService } from '../training-plan-templates/training-plan-templates.service';
+import { TrainingPlanService } from '../training-plan/training-plan.service';
 
 @Injectable()
 export class ChatsService {
@@ -25,6 +26,7 @@ export class ChatsService {
     private readonly chatRepository: Repository<ChatEntity>,
     private configService: ConfigService,
     private trainingPlanTemplatesService: TrainingPlanTemplatesService,
+    private trainingPlanService: TrainingPlanService
   ) {
   }
 
@@ -41,6 +43,7 @@ export class ChatsService {
         .on('toolCallDone', async (toolCall) => {
           const args = toolCall.type === 'function' && JSON.parse(toolCall.function.arguments);
           const trainingPlan = await this.trainingPlanTemplatesService.getBestPlan(args.goal);
+          await this.trainingPlanService.create(trainingPlan);
           resolve({
             threadId: message.threadId,
             role: 'assistant',
@@ -81,7 +84,6 @@ export class ChatsService {
     const processSignupMessage = () => new Promise<string>((resolve, reject) => {
       const run = this.aiClient.beta.threads.runs.stream(thread.id, { assistant_id: this.configService.get('OPENAI_ASSISTANT_ID') })
         .on('messageDone', (message) => {
-          console.log('Tool call delta: ',);
           resolve(message.content[0]['text'].value);
         });
     });
