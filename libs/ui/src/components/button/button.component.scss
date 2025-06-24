@@ -1,14 +1,13 @@
 :host {
- background: var(--primary-color);
  border-radius: 8px;
  font-family: 'Audiowide';
- color: white;
- border: none;
  cursor: pointer;
  padding: 12px 28px;
  user-select: none;
  position: relative;
+ transition: all 0.2s ease;
 
+ // Common styles for both variants
  rm-loader-dots {
   position: absolute;
   top: 50%;
@@ -17,6 +16,44 @@
   display: none;
  }
 
+ // Primary variant (filled)
+ &.variant-primary {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  transition: none; // Remove transition for primary to prevent flash
+
+  &:hover {
+   background: linear-gradient(var(--secondary-color), var(--primary-color));
+  }
+
+  &:active {
+   background: var(--secondary-color);
+  }
+ }
+
+ // Outline variant
+ &.variant-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+
+  &:hover {
+   background: rgba(var(--primary-color-rgb), 0.05);
+   border-color: var(--secondary-color);
+  }
+
+  &:active {
+   background: rgba(var(--primary-color-rgb), 0.1);
+   color: var(--secondary-color);
+  }
+
+  rm-loader-dots {
+   color: var(--primary-color);
+  }
+ }
+
+ // Loading state
  &.loading {
   cursor: default;
   opacity: 0.7;
@@ -29,15 +66,8 @@
    opacity: 0;
   }
  }
- 
- &:hover {
-  background: linear-gradient(var(--secondary-color), var(--primary-color));
- }
 
- &:active {
-  background: var(--secondary-color);
- }
-
+ // Disabled state
  &[disabled] {
   cursor: default;
   opacity: 0.3;
