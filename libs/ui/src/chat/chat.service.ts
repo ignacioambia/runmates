@@ -47,6 +47,14 @@ export class ChatService {
     });
   }
 
+  onPlanCreated() {
+    return new Observable<void>((observer) => {
+      this.socket.on('trainingPlanCreated', () => {
+        observer.next();
+      });
+    });
+  }
+
 
 
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject, forwardRef } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ChatEntity } from './entities/chat.entity';
 import { Repository } from 'typeorm';
@@ -8,6 +8,7 @@ import OpenAI from 'openai';
 import { User } from '@runmates/types/users';
 import { TrainingPlanTemplatesService } from '../training-plan-templates/training-plan-templates.service';
 import { TrainingPlanService } from '../training-plan/training-plan.service';
+import { ChatsGateway } from './chats.gateway';
 
 @Injectable()
 export class ChatsService {
@@ -26,7 +27,9 @@ export class ChatsService {
     private readonly chatRepository: Repository<ChatEntity>,
     private configService: ConfigService,
     private trainingPlanTemplatesService: TrainingPlanTemplatesService,
-    private trainingPlanService: TrainingPlanService
+    private trainingPlanService: TrainingPlanService,
+    @Inject(forwardRef(() => ChatsGateway))
+    private chatsGateway: ChatsGateway,
   ) {
   }
 
@@ -44,6 +47,7 @@ export class ChatsService {
           const args = toolCall.type === 'function' && JSON.parse(toolCall.function.arguments);
           const trainingPlan = await this.trainingPlanTemplatesService.getBestPlan(args.goal);
           await this.trainingPlanService.create(trainingPlan);
+          this.chatsGateway.trainingPlanCreated();
           resolve({
             threadId: message.threadId,
             role: 'assistant',
