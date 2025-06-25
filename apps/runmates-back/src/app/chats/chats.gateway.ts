@@ -49,7 +49,7 @@ export class ChatsGateway implements OnGatewayConnection, OnGatewayDisconnect {
   }
 
   // Method to emit training plan created event to all connected clients
-  trainingPlanCreated(trainingPlan?: any) {
+  trainingPlanCreated() {
     this.server.emit('trainingPlanCreated');
   }
 }
