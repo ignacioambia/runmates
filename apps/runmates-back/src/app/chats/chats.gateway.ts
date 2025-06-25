@@ -5,15 +5,22 @@ import {
   ConnectedSocket,
   OnGatewayConnection,
   OnGatewayDisconnect,
+  WebSocketServer,
 } from '@nestjs/websockets';
-import { Socket } from 'socket.io';
+import { Socket, Server } from 'socket.io';
 import { ChatMessage } from '@runmates/types/chats'
 import { ChatsService } from './chats.service';
+import { Inject, forwardRef } from '@nestjs/common';
 
 @WebSocketGateway({ namespace: '/chat', cors: true }) // Enable CORS for cross-origin requests
 export class ChatsGateway implements OnGatewayConnection, OnGatewayDisconnect {
+  @WebSocketServer()
+  server: Server;
 
-  constructor(private readonly chatService: ChatsService) {}
+  constructor(
+    @Inject(forwardRef(() => ChatsService))
+    private readonly chatService: ChatsService
+  ) {}
   
   // Triggered when a client connects
   handleConnection(@ConnectedSocket() client: Socket) {
@@ -39,5 +46,10 @@ export class ChatsGateway implements OnGatewayConnection, OnGatewayDisconnect {
   ) {
     const resultMessage = await this.chatService.processMessage(message);
     return resultMessage && { event: 'message', data: resultMessage }; // Respond to the sender
+  }
+
+  // Method to emit training plan created event to all connected clients
+  trainingPlanCreated() {
+    this.server.emit('trainingPlanCreated');
   }
 }

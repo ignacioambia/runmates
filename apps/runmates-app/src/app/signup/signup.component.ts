@@ -5,6 +5,7 @@ import { RegisterUserResponse } from '@runmates/types/users';
 import { ChatUserInfo, RmChatContainer } from '@runmates/ui/chat';
 import { ChatService } from '@runmates/ui/chat';
 import { RmDialogService } from '@runmates/ui';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-login',
@@ -24,20 +25,20 @@ export class AppSignup {
 
   constructor(
     private http: HttpClient,
-    private dialogService: RmDialogService
+    private storage: Storage
   ) {
     // Initialize any necessary services or variables here
   }
 
   ngOnInit() {
-    // setTimeout(() => {
-    //   this.dialogService.open({ title: 'All done!', content: 'Hello world!' });
-    // }, 5000);
     this.http
       .post<RegisterUserResponse>('/users', null)
       .subscribe((response) => {
-        // Storage.get('token').then((token) => {
         this.chatService.registerUser();
+        
+        this.chatService.onPlanCreated().subscribe(() => {
+          this.storage.set('token', response.token);
+        });
       });
   }
 }

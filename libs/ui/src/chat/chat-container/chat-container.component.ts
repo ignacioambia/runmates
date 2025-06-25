@@ -1,8 +1,9 @@
 import { Component, effect, ElementRef, input, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { ChatService } from '../chat.service';
 import { RmChatInput } from "../../inputs/chat-input/chat-input.component";
-import { RmMessage } from '@runmates/ui/components';
+import { RmButton, RmMessage } from '@runmates/ui/components';
 import { ChatMessage } from '@runmates/types/chats';
 import { animate, style, transition, trigger } from '@angular/animations';
 
@@ -15,7 +16,7 @@ export interface ChatUserInfo {
 //TODO: Add an animation when a new message is received
 @Component({
   selector: 'rm-chat-container',
-  imports: [CommonModule, RmChatInput, RmMessage],
+  imports: [CommonModule, RmChatInput, RmMessage, RmButton],
   templateUrl: './chat-container.component.html',
   styleUrl: './chat-container.component.scss',
   animations: [
@@ -26,6 +27,13 @@ export interface ChatUserInfo {
       ]),
       transition(':leave', [
         animate('200ms ease-in', style({ opacity: 0, transform: 'translateY(10px)' }))
+      ])
+    ]),
+    trigger('planButtonAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'scale(0.8)' }),
+        animate('600ms cubic-bezier(0.175, 0.885, 0.32, 1.275)', 
+          style({ opacity: 1, transform: 'scale(1)' }))
       ])
     ])
   ]
@@ -39,8 +47,12 @@ export class RmChatContainer {
   public messages = signal<ChatMessage[]>([]);
   private threadId = '';
   public inputDisabled = true;
+  public planCreated = false;
 
-  constructor(private chatService: ChatService) {
+  constructor(
+    private chatService: ChatService, 
+    private router: Router
+  ) {
     effect(() => {
       this.messages();
       setTimeout(() => this.scrollToBottom(), 100);
@@ -54,6 +66,12 @@ export class RmChatContainer {
     this.chatService.receiveMessage().subscribe((message) => {
       this.messages.update((currentMessages) => [...currentMessages, message]);
       this.inputDisabled = false;
+    });
+
+    this.chatService.onPlanCreated().subscribe(() => {
+      this.planCreated = true;
+      this.inputDisabled = false;
+      this.scrollToBottom();
     });
   }
 
@@ -79,5 +97,9 @@ export class RmChatContainer {
 
     this.chatService.sendMessage(newMessage);
     this.inputDisabled = true;
+  }
+
+  public navigateToHome(): void {
+    this.router.navigate(['/home']);
   }
 }
