@@ -8,11 +8,12 @@ FROM docker.io/node:lts-alpine
 
 ENV HOST=0.0.0.0
 ENV PORT=3000
+ENV NODE_ENV=production
 
 WORKDIR /app
 
 RUN addgroup --system runmates-back && \
-          adduser --system -G runmates-back runmates-back
+    adduser --system -G runmates-back runmates-back
 
 # Install pnpm globally
 RUN corepack enable && corepack prepare pnpm@latest --activate
@@ -21,7 +22,13 @@ COPY dist/apps/runmates-back runmates-back/
 RUN chown -R runmates-back:runmates-back .
 
 # You can remove this install step if you build with `--bundle` option.
-# The bundled output will include external dependencies.
 RUN pnpm --prefix runmates-back install --prod
 
-CMD [ "node", "runmates-back" ]
+EXPOSE 3000
+
+HEALTHCHECK --interval=30s --timeout=3s \
+  CMD wget -q --spider http://localhost:3000/ || exit 1
+
+USER runmates-back
+
+CMD ["node", "runmates-back/main.js"]
