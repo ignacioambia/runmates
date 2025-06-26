@@ -6,6 +6,10 @@
 app = 'runmates-back-icy-shadow-4369'
 primary_region = 'qro'
 
+[build]
+  dockerfile = "Dockerfile"
+  context = "."
+
 [http_service]
   internal_port = 3000
   force_https = true
