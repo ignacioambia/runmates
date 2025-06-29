@@ -39,6 +39,8 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
+    "@storybook/addon-viewport": "^8.6.12",
+    "@storybook/addon-actions": "^8.6.12",
     "@angular-devkit/build-angular": "19.2.5",
     "@angular-devkit/core": "19.2.5",
     "@angular-devkit/schematics": "19.2.5",
