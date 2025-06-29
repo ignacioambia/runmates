@@ -18,10 +18,13 @@ export class RmChatInput {
   public message = '';
 
   public handleSendMessage(event?: Event): void {
+    if(this.disabled() || !this.message.trim()) return;
+
     event?.preventDefault();
     this.messageSent.emit(this.message.trim());
     this.message = '';
     this.adjustHeight();
+    this.chatInput.nativeElement.focus();
   }
 
   public adjustHeight(): void {
