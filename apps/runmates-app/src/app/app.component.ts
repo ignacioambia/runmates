@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
-import { RmModule } from '@runmates/ui';
 import { Storage } from '@ionic/storage-angular';
 @Component({
   selector: 'app-root',

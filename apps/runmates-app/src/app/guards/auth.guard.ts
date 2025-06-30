@@ -15,7 +15,6 @@ export class AuthGuard implements CanActivate {
 
   async canActivate(): Promise<boolean> {
     const userIsAuthenticated = await this.storage.get('token');
-    console.log('userIsAuthenticated', userIsAuthenticated);
     if (userIsAuthenticated) {
       return true;
     }

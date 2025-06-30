@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { RmTrainingCard, RmMessage } from '@runmates/ui';
@@ -14,7 +14,10 @@ import { IonContent } from '@ionic/angular/standalone';
 export class AppHome {
 
   public trainingPlans: Training[] = [];
-  constructor(private http: HttpClient) {
+
+  private http = inject(HttpClient);
+
+  constructor() {
     this.getTraining().subscribe({
       next: (result: any) => {
         this.trainingPlans = Object.values(result.week_3);

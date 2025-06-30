@@ -2,7 +2,6 @@
   <textarea
     #chatInput
     [(ngModel)]="message"
-    [disabled]="disabled()"
     [placeholder]="disabled() ? 'Please wait...' : placeholder()"
     type="text"
     (keydown.enter)="handleSendMessage($event);"

@@ -48,6 +48,7 @@
     &:disabled {
       color: #999;
       cursor: not-allowed;
+      pointer-events: none;
       
       &::placeholder {
         color: #ccc;
