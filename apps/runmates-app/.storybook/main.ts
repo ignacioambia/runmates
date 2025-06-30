@@ -7,7 +7,7 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@chromatic-com/storybook'
   ],
-  staticDirs: ["../../../assets/tools"],
+  staticDirs: ["../../../assets/tools","./public"],
 
   framework: {
     name: '@storybook/angular',

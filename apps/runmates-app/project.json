@@ -147,6 +147,55 @@
       "options": {
         "cmd": "copy"
       }
+    },
+    "sb": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "apps/runmates-app/.storybook",
+        "browserTarget": "runmates-app:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/runmates-app",
+        "configDir": "apps/runmates-app/.storybook",
+        "browserTarget": "runmates-app:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-sb": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c apps/runmates-app/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-sb": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build-storybook"],
+      "options": {
+        "buildTarget": "runmates-app:build-storybook",
+        "staticFilePath": "dist/storybook/runmates-app",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "runmates-app:build-storybook:ci"
+        }
+      }
     }
   }
 }
