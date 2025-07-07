@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { LdHome } from './pages/home/home.component';
 import { RmModule } from '@runmates/ui';
 @Component({
-  imports: [RouterModule, LdHome, RmModule],
+  imports: [RouterModule, RmModule],
   selector: 'ld-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

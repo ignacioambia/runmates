@@ -5,11 +5,14 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { baseUrlInterceptor } from '@runmates/ui';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
+    provideHttpClient(withInterceptors([baseUrlInterceptor])),
     provideRouter(appRoutes),
   ],
 };
