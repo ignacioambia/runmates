@@ -1,0 +1,25 @@
+<div class="marketplace-container">
+  <div *ngIf="user$ | async as user; else loginTemplate">
+    <!-- User is logged in -->
+    <div class="user-info">
+      <h2>Welcome, {{ user.displayName }}!</h2>
+      <img [src]="user.photoURL" [alt]="user.displayName" *ngIf="user.photoURL" class="user-avatar">
+      <button (click)="signOut()" class="btn btn-secondary">Sign Out</button>
+    </div>
+    
+    <!-- Your marketplace content here -->
+    <div class="marketplace-content">
+      <p>marketplace works!</p>
+    </div>
+  </div>
+
+  <!-- Login template -->
+  <ng-template #loginTemplate>
+    <div class="login-container">
+      <h2>Sign in to access the marketplace</h2>
+      <button (click)="signIn()" class="btn btn-primary">
+        Sign in with Google
+      </button>
+    </div>
+  </ng-template>
+</div>
