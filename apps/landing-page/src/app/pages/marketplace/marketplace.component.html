@@ -4,7 +4,7 @@
     <div class="header-content">
       <h1>Runmates MarketPlace</h1>
       <div class="user-menu">
-        <div *ngIf="user$ | async as user; else loginButton" class="user-profile-trigger" (click)="toggleUserMenu()">
+        <div *ngIf="user$ | async as user; else loginButton" class="user-profile-trigger" (click)="toggleUserMenu()" (keydown.enter)="toggleUserMenu()" (keydown.space)="toggleUserMenu()" tabindex="0" role="button" [attr.aria-expanded]="showUserMenu">
           <img [src]="user.photoURL" [alt]="user.displayName" *ngIf="user.photoURL" class="user-avatar">
           <div class="user-info">
             <span class="user-name">{{ user.displayName }}</span>
@@ -22,7 +22,7 @@
             Iniciar sesión
           </button>
         </ng-template>
-        <div class="user-dropdown" *ngIf="showUserMenu" (click)="$event.stopPropagation()">
+        <div class="user-dropdown" *ngIf="showUserMenu" (click)="$event.stopPropagation()" (keydown.enter)="$event.stopPropagation()" (keydown.space)="$event.stopPropagation()" tabindex="0" role="dialog" aria-label="User menu">
           <div class="dropdown-content">
             <div class="user-details">
               <img [src]="(user$ | async)?.photoURL" [alt]="(user$ | async)?.displayName" *ngIf="(user$ | async)?.photoURL" class="user-avatar-large">
