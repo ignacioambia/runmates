@@ -1,4 +1,7 @@
 export interface User {
+  firebaseUid: string;
+  email: string;
+  photoURL?: string;
   name: string;
   motivation: string;
   frequency: string;

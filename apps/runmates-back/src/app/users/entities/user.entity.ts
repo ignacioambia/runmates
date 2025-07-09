@@ -7,6 +7,15 @@ export class UserEntity implements User {
   id: number;
 
   @Column({ nullable: true})
+  firebaseUid: string;
+
+  @Column({ nullable: true})
+  email: string;
+
+  @Column({ nullable: true})
+  photoURL?: string;
+
+  @Column({ nullable: true})
   name: string;
 
   @Column({ nullable: true})

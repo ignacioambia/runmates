@@ -13,6 +13,15 @@ export class CreateUserDto implements Exact<CreateUserDto, User> {
 
     @IsString()
     @IsOptional()
+    firebaseUid: string;
+
+
+    @IsString()
+    @IsOptional()
+    email: string;
+
+    @IsString()
+    @IsOptional()
     frequency: string;
 
     @IsNumber()

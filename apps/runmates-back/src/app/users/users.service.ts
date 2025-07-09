@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { Injectable, Inject, forwardRef } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserEntity } from './entities/user.entity';
@@ -12,6 +12,7 @@ export class UsersService {
 
   constructor(
     @InjectRepository(UserEntity) private readonly userRepository: Repository<UserEntity>,
+    @Inject(forwardRef(() => AuthService))
     private readonly authService: AuthService,
   ) {}
 
@@ -26,6 +27,28 @@ export class UsersService {
 
     const token = this.authService.generateToken({ id: savedUser.id });
     return { userId: savedUser.id, token};
+  }
+
+  async loginFirebaseUser(userInfo: any): Promise<any> {
+    let user: User;
+    let savedUser: UserEntity;
+    user = await this.userRepository.findOneBy({ firebaseUid: userInfo.firebaseUid });
+    if (!user) {
+      user = this.userRepository.create({ 
+        firebaseUid: userInfo.firebaseUid,
+        email: userInfo.email,
+        photoURL: userInfo.photoURL,
+        name: userInfo.displayName,
+        averagePace: null, // Set default values if needed
+        motivation: null,
+        frequency: null,
+        goal: null
+       });
+      savedUser = await this.userRepository.save(user);
+    }
+    const token = this.authService.generateToken({ id: user['id'] || savedUser.id });
+    return { user, token };
+
   }
 
   async updateUser(id: number, updateUserDto: UpdateUserDto): Promise<User> {
