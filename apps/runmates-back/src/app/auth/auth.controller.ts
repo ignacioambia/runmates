@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Inject, forwardRef, OnModuleInit } from '@nestjs/common';
+import { Body, Controller, Post, Inject, forwardRef } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { Public } from '../common/decorators/public.decorator';
 import { FirebaseAuthDto } from './dto/firebase-auth.dto';
