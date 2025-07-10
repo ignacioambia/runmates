@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth/auth.guard';
 import { TypeOrmNamingStrategy } from './type-orm-naming-strategy';
+import { MarketplaceModule } from './marketplace/marketplace.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { TypeOrmNamingStrategy } from './type-orm-naming-strategy';
     ChatsModule,
     UsersModule,
     AuthModule,
+    MarketplaceModule,
   ],
   controllers: [AppController],
   providers: [
