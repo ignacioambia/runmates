@@ -1,0 +1,21 @@
+<div class="sell-container">
+    <h3>Vender boleto para medio maraton</h3>
+    <form [formGroup]="sellForm" class="sell-form">
+        <rm-input
+            label="Precio del boleto"
+            errorMessage="Valor tiene que ser un número positivo"
+            formControlName="price" />
+        <rm-input
+            label="Razón de la venta"
+            placeholder="Ej. Me lesioné y no podré correr"
+            errorMessage="Campo requrido"
+            formControlName="reasonOfSale" />
+        <rm-input
+            label="Número de teléfono"
+            formControlName="phone" />
+
+    </form>
+
+    <button [loading]="postingTicket" rm-button  [disabled]="!validForm" (click)="postNewTicket()">Publicar boleto</button>
+
+</div>
