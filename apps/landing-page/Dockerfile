@@ -21,7 +21,8 @@ COPY dist/apps/landing-page landing-page/
 COPY apps/landing-page/package.json landing-page/
 RUN chown -R landing-page:landing-page .
 
-# You can remove this install step if you build with `--bundle` option.
-# The bundled output will include external dependencies.
-RUN pnpm --prefix landing-page install --prod
-CMD [ "node", "landing-page/server/server.mjs" ]
+# Install serve globally to serve static files
+RUN npm install -g serve
+
+# Serve the static files from the browser directory
+CMD [ "serve", "-s", "landing-page/browser", "-l", "3000" ]
