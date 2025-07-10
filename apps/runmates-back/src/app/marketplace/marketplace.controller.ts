@@ -4,6 +4,7 @@ import { CreateMarketplaceDto } from './dto/create-marketplace.dto';
 import { UpdateMarketplaceDto } from './dto/update-marketplace.dto';
 import { PostTicketDto } from './dto/post-ticket.dto';
 import { TokenPayload } from '../common/decorators/token-payload.decorator';
+import { Public } from '../common/decorators/public.decorator';
 
 @Controller('marketplace')
 export class MarketplaceController {
@@ -14,7 +15,8 @@ export class MarketplaceController {
     return this.marketplaceService.postTicket(postTicketDto, userId);
   }
 
-  @Get()
+  @Public()
+  @Get('tickets')
   findAll() {
     return this.marketplaceService.findAll();
   }

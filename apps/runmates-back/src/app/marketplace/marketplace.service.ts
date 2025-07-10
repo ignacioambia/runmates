@@ -34,8 +34,16 @@ export class MarketplaceService {
     return savedTicket;
   }
 
-  findAll() {
-    return `This action returns all marketplace`;
+  async findAll() {
+    // Get all tickets and include user information
+    const tickets = await this.ticketRepository.find({
+      relations: ['user'],
+      order: {
+        created_at: 'DESC' // Most recent tickets first
+      }
+    });
+    
+    return tickets;
   }
 
   findOne(id: number) {
