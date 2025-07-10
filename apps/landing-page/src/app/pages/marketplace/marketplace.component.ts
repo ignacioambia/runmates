@@ -1,4 +1,5 @@
 import { Component, inject, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Auth, signInWithPopup, GoogleAuthProvider, signOut, user } from '@angular/fire/auth';
 import { RmButton } from '@runmates/ui';
@@ -13,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 export class LdMarketplace {
   private readonly auth = inject(Auth);
   private readonly http = inject(HttpClient);
+  private readonly router = inject(Router);
   
   // Observable of the current user
   public user$ = user(this.auth);
@@ -64,6 +66,10 @@ export class LdMarketplace {
     
     // Open WhatsApp in a new window/tab
     window.open(whatsappUrl, '_blank');
+  }
+
+  postTicket(){
+    this.router.navigate(['/marketplace/vender-boleto']);
   }
 
   public async signOut() {

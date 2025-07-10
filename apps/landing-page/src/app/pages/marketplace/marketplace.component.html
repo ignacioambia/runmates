@@ -51,8 +51,14 @@
   </header>
 
   <!-- Your marketplace content here -->
-  <div class="marketplace-content">
+  <div class="a-header">
     <h3>Boletos para medio maratón CDMX</h3>
+    <button rm-button variant="primary" (click)="postTicket()">
+      <span>Publicar mi boleto</span>
+    </button>
+  </div>
+  <div class="marketplace-content">
+
     <div class="tickets">
       @for(ticket of tickets; track ticket.id) {
       <div class="ticket-container">
