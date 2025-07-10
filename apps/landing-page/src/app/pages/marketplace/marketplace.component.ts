@@ -50,10 +50,18 @@ export class LdMarketplace {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(this.auth, provider);
-      console.log('User signed in:', result.user);
-    } catch (error) {
+      console.log('User signed in:', result.user.getIdToken);
+
+      this.http.post('/auth/firebase', { idToken: await result.user.getIdToken() }).subscribe({
+        next: (response: any) => {
+          localStorage.setItem('token', response['token']);
+        }
+    });
+  } catch (error) {
       console.error('Error signing in:', error);
+      // Handle sign-in errors here (e.g., show a notification)
     }
+
   }
 
   public openWhatsApp(phoneNumber: string) {
@@ -69,6 +77,10 @@ export class LdMarketplace {
   }
 
   postTicket(){
+    if(!localStorage.getItem('token')) {
+      this.signIn();
+      return;
+    }
     this.router.navigate(['/marketplace/vender-boleto']);
   }
 
@@ -77,6 +89,7 @@ export class LdMarketplace {
       await signOut(this.auth);
       console.log('User signed out');
       this.showUserMenu = false; // Close menu after sign out
+      localStorage.clear();
     } catch (error) {
       console.error('Error signing out:', error);
     }
