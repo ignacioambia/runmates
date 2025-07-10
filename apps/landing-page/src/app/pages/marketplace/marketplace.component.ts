@@ -1,7 +1,9 @@
 import { Component, inject, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Auth, signInWithPopup, GoogleAuthProvider, signOut, user } from '@angular/fire/auth';
 import { RmButton } from '@runmates/ui';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'ld-marketplace',
@@ -11,12 +13,23 @@ import { RmButton } from '@runmates/ui';
 })
 export class LdMarketplace {
   private readonly auth = inject(Auth);
+  private readonly http = inject(HttpClient);
+  private readonly router = inject(Router);
   
   // Observable of the current user
   public user$ = user(this.auth);
   
   // User menu state
   public showUserMenu = false;
+  public tickets: any[] = []; // Array to hold tickets data
+
+  public ngOnInit() {
+    this.http.get('/marketplace/tickets').subscribe({
+      next: (data) => {
+        this.tickets = data as any; // Assuming the response is an array of tickets
+      }
+    });
+  }
 
   public toggleUserMenu() {
     this.showUserMenu = !this.showUserMenu;
@@ -41,6 +54,22 @@ export class LdMarketplace {
     } catch (error) {
       console.error('Error signing in:', error);
     }
+  }
+
+  public openWhatsApp(phoneNumber: string) {
+    // Clean the phone number (remove any non-numeric characters except +)
+    const cleanPhone = phoneNumber.replace(/[^\d+]/g, '');
+    
+    // Create WhatsApp URL with a predefined message
+    const message = encodeURIComponent('Hola! Me interesa tu boleto para el medio maratón CDMX. ¿Podrías darme más información?');
+    const whatsappUrl = `https://wa.me/${cleanPhone}?text=${message}`;
+    
+    // Open WhatsApp in a new window/tab
+    window.open(whatsappUrl, '_blank');
+  }
+
+  postTicket(){
+    this.router.navigate(['/marketplace/vender-boleto']);
   }
 
   public async signOut() {

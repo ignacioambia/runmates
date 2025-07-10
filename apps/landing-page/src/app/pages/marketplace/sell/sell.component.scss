@@ -1,0 +1,19 @@
+.sell-container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    clear: inherit;
+    gap: 3rem;
+    min-width: 300px;
+    max-width: 50vw;
+    button {
+        width: 100%;;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
