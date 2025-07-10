@@ -5,18 +5,44 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { UserEntity } from './entities/user.entity';
 import { mockRepository } from '../../test-utils/mock-repository.util';
 import { AuthService } from '../auth/auth.service';
-import { JwtSecretRequestType, JwtService } from '@nestjs/jwt';
+import { JwtService } from '@nestjs/jwt';
+import { ConfigService } from '@nestjs/config';
 
 describe('UsersController', () => {
   let controller: UsersController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [UsersController, ],
-      providers: [UsersService, AuthService, JwtService,{
-        provide: getRepositoryToken(UserEntity),
-        useValue: mockRepository,
-      }],
+      controllers: [UsersController],
+      providers: [
+        UsersService,
+        AuthService,
+        {
+          provide: JwtService,
+          useValue: {
+            sign: jest.fn(),
+            verify: jest.fn(),
+          },
+        },
+        {
+          provide: ConfigService,
+          useValue: {
+            get: jest.fn((key: string) => {
+              const config = {
+                'FIREBASE_PROJECT_ID': 'test-project',
+                'FIREBASE_CLIENT_EMAIL': 'test@test.com',
+                'FIREBASE_PRIVATE_KEY': 'test-key',
+                'JWT_SECRET': 'test-secret',
+              };
+              return config[key];
+            }),
+          },
+        },
+        {
+          provide: getRepositoryToken(UserEntity),
+          useValue: mockRepository,
+        }
+      ],
     }).compile();
 
     controller = module.get<UsersController>(UsersController);
