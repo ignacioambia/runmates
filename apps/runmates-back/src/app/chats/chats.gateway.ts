@@ -32,10 +32,12 @@ export class ChatsGateway implements OnGatewayConnection, OnGatewayDisconnect {
     console.log(`Client disconnected: ${client.id}`);
   }
 
-  @SubscribeMessage('register')
-  async registerUser() {
-    const receivedMessage = await this.chatService.startSignupConversation();
-    return { event: 'signup', data: receivedMessage }; 
+  @SubscribeMessage('signup-conversation')
+  async signUpConversation(
+    @MessageBody() message: { userId: number },
+  ) {
+    const receivedMessage = await this.chatService.startSignupConversation(message.userId);
+    return { event: 'signup-conversation', data: receivedMessage }; 
   }
 
   // Handles incoming messages from clients
