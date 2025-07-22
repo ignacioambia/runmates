@@ -1,0 +1,10 @@
+packages:
+  - "apps/*"
+  - "libs/*"
+publicHoistPattern:
+  - "class-transformer"
+  - "@angular/*"
+  - "@nestjs/*"
+  - "zone.js"
+  - "@ionic/*"
+  - "socket.io-client"

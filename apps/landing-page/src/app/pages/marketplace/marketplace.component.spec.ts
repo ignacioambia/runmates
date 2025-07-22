@@ -1,26 +1,32 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LdMarketplace } from './marketplace.component';
 import { Auth } from '@angular/fire/auth';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Router } from '@angular/router';
 
 describe('LdMarketplace', () => {
   let component: LdMarketplace;
   let fixture: ComponentFixture<LdMarketplace>;
-  let mockAuth: jest.Mocked<Auth>;
+  let mockAuth: Partial<Auth>;
+  let mockRouter: Partial<Router>;
 
   beforeEach(async () => {
     // Create a mock Auth service
     mockAuth = {
       currentUser: null,
       onAuthStateChanged: jest.fn(),
-      signInWithPopup: jest.fn(),
-      signOut: jest.fn(),
     } as any;
 
+    // Create a mock Router service
+    mockRouter = {
+      navigate: jest.fn(),
+    };
+
     await TestBed.configureTestingModule({
-      imports: [LdMarketplace],
+      imports: [LdMarketplace, HttpClientTestingModule],
       providers: [
-        { provide: Auth, useValue: mockAuth }
+        { provide: Auth, useValue: mockAuth },
+        { provide: Router, useValue: mockRouter }
       ]
     }).compileComponents();
 
@@ -45,7 +51,7 @@ describe('LdMarketplace', () => {
     component.showUserMenu = true;
     const mockEvent = {
       target: document.createElement('div')
-    } as any;
+    } as unknown as MouseEvent;
     
     component.onDocumentClick(mockEvent);
     expect(component.showUserMenu).toBe(false);

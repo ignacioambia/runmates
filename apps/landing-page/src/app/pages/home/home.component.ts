@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 import { finalize, Subscription } from 'rxjs';
 import { FormGroupControls } from '@runmates/ui/types';
 import { Lead } from '@runmates/types/leads';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ld-home',
@@ -27,6 +28,8 @@ export class LdHome {
     name: new FormControl(''),
     email: new FormControl('', [Validators.required, Validators.email]),
   });
+
+  private router = inject(Router);
 
   constructor(private http: HttpClient, private dialog: RmDialogService) {
     this.infoFg.statusChanges.subscribe((status) => {
@@ -47,5 +50,9 @@ export class LdHome {
           icon: RmPartyIcon,
         });
       });
+  }
+
+  navigateToMarketplace() {
+    this.router.navigate(['/marketplace']);
   }
 }
