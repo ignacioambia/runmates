@@ -17,5 +17,6 @@ import { DailyTrainingPlanEntity } from '../training-plan/entities/daily-trainin
   imports: [TypeOrmModule.forFeature([ChatEntity, TrainingPlanTemplateEntity, DailyTrainingPlanTemplateEntity, TrainingActivityTemplateEntity, TrainingPlanEntity, DailyTrainingPlanEntity, TrainingActivityEntity])],
   controllers: [ChatsController],
   providers: [ChatsGateway, ChatsService, TrainingPlanTemplatesService, TrainingPlanService],
+  exports: [ChatsService], // Export ChatsService so it can be used in other modules
 })
 export class ChatsModule { }

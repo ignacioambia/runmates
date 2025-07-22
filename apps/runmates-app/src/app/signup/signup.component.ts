@@ -34,7 +34,7 @@ export class AppSignup {
     this.http
       .post<RegisterUserResponse>('/users', null)
       .subscribe((response) => {
-        this.chatService.registerUser();
+        this.chatService.startSignupConversation(response.userId);
         
         this.chatService.onPlanCreated().subscribe(() => {
           this.storage.set('token', response.token);

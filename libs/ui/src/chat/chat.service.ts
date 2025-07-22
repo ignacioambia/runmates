@@ -22,8 +22,8 @@ export class ChatService {
     });
   }
 
-  registerUser() {
-    this.socket.emit('register');
+  startSignupConversation(userId: number) {
+    this.socket.emit('signup-conversation', {userId});
   }
 
 
@@ -41,7 +41,7 @@ export class ChatService {
 
   onSignup() { 
     return new Observable<ChatMessage>((observer) => {
-      this.socket.on('signup', (chatMessage) => {
+      this.socket.on('signup-conversation', (chatMessage) => {
         observer.next(chatMessage);
       });
     });
