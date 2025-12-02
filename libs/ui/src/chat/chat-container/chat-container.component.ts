@@ -41,11 +41,10 @@ export interface ChatUserInfo {
 export class RmChatContainer {
   @ViewChild('messagesContainer') private messagesContainer!: ElementRef;
 
-  public chatId = input<number>();
+  public chatId = -1;
   public userInfo = input<ChatUserInfo>();
 
   public messages = signal<ChatMessage[]>([]);
-  private threadId = '';
   public inputDisabled = true;
   public planCreated = false;
 
@@ -58,7 +57,7 @@ export class RmChatContainer {
       setTimeout(() => this.scrollToBottom(), 100);
     })
     this.chatService.onSignup().subscribe((chatMessage) => {
-      this.threadId = chatMessage.threadId;
+      this.chatId = chatMessage.chatId;
       this.messages.update(() => [chatMessage]);
       this.inputDisabled = false;
     });
@@ -89,7 +88,7 @@ export class RmChatContainer {
 
   public sendMessage(message: string) {
     const newMessage: ChatMessage = {
-      threadId: this.threadId,
+      chatId: this.chatId,
       role: 'user',
       content: message,
     };
