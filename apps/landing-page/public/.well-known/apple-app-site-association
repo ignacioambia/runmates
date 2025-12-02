@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "72KBR3BTAY.com.begomx.driver",
+        "paths": [ "/bego-driver/*" ]
+      }
+    ]
+  }
+}
